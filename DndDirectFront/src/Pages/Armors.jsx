@@ -1,17 +1,14 @@
 import React from 'react'
-import styles from './Armor.module.css'
+import styles from './Armors.module.css'
 
-
-
-function Armor() {
+function Armors() {
     return (
         <>
-
-            <div>
+            <div className='Title'>
                 <h1> Доспехи </h1>
             </div>
         </>
     );
 }
 
-export default Armor
+export default Armors
