@@ -5,13 +5,26 @@ import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
-  BrowserRouter
+  BrowserRouter, Routes, Route,
 } from "react-router-dom";
+import HomePage from './Pages/HomePage.jsx'
+import Armors from './Pages/Armors.jsx'
+import Weapons from './Pages/Weapons.jsx'
+import Spells from './Pages/Spells.jsx'
+import Charecters from './Pages/Charecters.jsx'
+
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/armors/" element={<Armors />} />
+        <Route path="/weapons/" element={<Weapons />} />
+        <Route path="/spells/" element={<Spells />} />
+        <Route path="/charecters/" element={<Charecters />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
 )
