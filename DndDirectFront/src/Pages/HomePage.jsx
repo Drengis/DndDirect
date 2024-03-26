@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from './HomePage.module.css'
-import Header from '../Components/Header'
+
 
 function HomePage() {
     return (
         <>
-            <Header />
+            <div className='Title'>
+                <h1 className={styles.HomePageTitle}> Главная Страница </h1>
+            </div>
         </>
     );
 }
