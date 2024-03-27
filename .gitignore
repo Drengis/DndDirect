@@ -1,2 +1,27 @@
 /.venv
 /.vscode
+
+# Logs
+/DndDirectFront/logs
+/DndDirectFront/*.log
+/DndDirectFront/npm-debug.log*
+/DndDirectFront/yarn-debug.log*
+/DndDirectFront/yarn-error.log*
+/DndDirectFront/pnpm-debug.log*
+/DndDirectFront/lerna-debug.log*
+
+/DndDirectFront/node_modules
+/DndDirectFront/dist
+/DndDirectFront/dist-ssr
+/DndDirectFront/*.local
+
+# Editor directories and files
+/DndDirectFront/.vscode/*
+/DndDirectFront/!.vscode/extensions.json
+/DndDirectFront/.idea
+/DndDirectFront/.DS_Store
+/DndDirectFront/*.suo
+/DndDirectFront/*.ntvs*
+/DndDirectFront/*.njsproj
+/DndDirectFront/*.sln
+/DndDirectFront/*.sw?
