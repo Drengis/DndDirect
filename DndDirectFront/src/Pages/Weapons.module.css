@@ -1,0 +1,56 @@
+.Title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.Tables {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.SimpleWeaponsTable {
+    color: aliceblue;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    align-items: center;
+    table-layout: fixed;
+    width: 40%;
+    border: 1px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
+
+}
+
+.MilitaryWeaponsTable {
+    color: aliceblue;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    align-items: center;
+    table-layout: fixed;
+    width: 40%;
+    border: 1px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
+    overflow-wrap: break-word;
+}
+
+tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border: 1px solid rgb(87, 87, 87);
+    border-radius: 2%;
+
+}
+
+td,
+th {
+    width: 170px;
+}

@@ -1,8 +1,7 @@
-from django.urls import path, include
+from django.urls import path
 from main import views 
 
-
 urlpatterns = [
-    path('simple-weapons/', views.SimpleWeaponsView.as_view()),
-    path('huy', views.index)
+    path('simple-weapons/get', views.SimpleWeaponsViewGet.as_view()),
+    path('miilitary-weapons/get', views.MilitaryWeaponsViewGet.as_view())
 ]

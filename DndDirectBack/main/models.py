@@ -13,7 +13,7 @@ class SimpleWeapons(models.Model):
 class MilitaryWeapons(models.Model):
     name = models.CharField(max_length=64)
     price = models.IntegerField()
-    damage = models.IntegerField()
+    damage = models.CharField(max_length=64)
     options = models.CharField(max_length=64)
 
     class Meta:
