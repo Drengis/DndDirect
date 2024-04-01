@@ -24,6 +24,41 @@
     margin-right: 25px;
 }
 
+.MediumArmorsTable {
+    color: aliceblue;
+    background-color: #242424;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    align-items: center;
+    table-layout: fixed;
+    border: 1px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
+    margin-right: 25px;
+}
+
+.HeavyArmorsTable {
+    color: aliceblue;
+    background-color: #242424;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    font-size: large;
+    table-layout: fixed;
+    border: 1px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
+    margin-right: 25px;
+}
+
+.HeavyArmorsTableConteiner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
 tr {
     display: flex;
     justify-content: center;
