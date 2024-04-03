@@ -38,7 +38,7 @@ function Weapons() {
                             <th scope="col">Название</th>
                             <th scope="col">Цена</th>
                             <th scope="col">Урон</th>
-                            <th scope="col">Свойства</th>
+                            <th className={styles.columnOptions} scope="col">Свойства</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,7 +47,7 @@ function Weapons() {
                                 <td>{weapon.name}</td>
                                 <td>{weapon.price}</td>
                                 <td>{weapon.damage}</td>
-                                <td>{weapon.options}</td>
+                                <td className={styles.columnOptions}>{weapon.options}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -59,7 +59,7 @@ function Weapons() {
                             <th scope="col">Название</th>
                             <th scope="col">Цена</th>
                             <th scope="col">Урон</th>
-                            <th scope="col">Свойства</th>
+                            <th className={styles.columnOptions} scope="col">Свойства</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -68,7 +68,7 @@ function Weapons() {
                                 <td>{weapon.name}</td>
                                 <td>{weapon.price}</td>
                                 <td>{weapon.damage}</td>
-                                <td>{weapon.options}</td>
+                                <td className={styles.columnOptions}>{weapon.options}</td>
                             </tr>
                         ))}
                     </tbody>

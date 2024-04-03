@@ -7,6 +7,7 @@
 .Tables {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding: 2%;
 }
 
@@ -18,7 +19,7 @@
     font-size: large;
     align-items: center;
     table-layout: fixed;
-    border: 1px solid aliceblue;
+    border: 3px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
     margin-right: 25px;
@@ -32,7 +33,7 @@
     font-size: large;
     align-items: center;
     table-layout: fixed;
-    border: 1px solid aliceblue;
+    border: 3px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
     margin-right: 25px;
@@ -42,11 +43,10 @@
     color: aliceblue;
     background-color: #242424;
     display: flex;
-    width: 50%;
     flex-direction: column;
     font-size: large;
     table-layout: fixed;
-    border: 1px solid aliceblue;
+    border: 3px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
     margin-right: 25px;
@@ -71,5 +71,9 @@ tr {
 
 td,
 th {
-    width: 100px;
+    width: 150px;
+}
+
+.columnArmorClass {
+    width: 180px;
 }

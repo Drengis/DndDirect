@@ -7,5 +7,6 @@ urlpatterns = [
     path('light-armors/get', views.LightArmorsViewGet.as_view()),
     path('medium-armors/get', views.MediumArmorsViewGet.as_view()),
     path('heavy-armors/get', views.HeavyArmorsViewGet.as_view()),
+    path('spells/get', views.SpellsViewGet.as_view()),
     
 ]

@@ -46,7 +46,7 @@ function Armors() {
                         <tr >
                             <th scope="col">Название</th>
                             <th scope="col">Цена</th>
-                            <th scope="col">Класс Брони</th>
+                            <th className={styles.columnArmorClass} scope="col">Класс Брони</th>
                             <th scope="col">Небходимая сила</th>
                             <th scope="col">Скрытность</th>
                         </tr>
@@ -56,7 +56,7 @@ function Armors() {
                             <tr key={weapon.id}>
                                 <td>{weapon.name}</td>
                                 <td>{weapon.price}</td>
-                                <td>{weapon.armorclass}</td>
+                                <td className={styles.columnArmorClass}>{weapon.armorclass}</td>
                                 <td>{weapon.strength}</td>
                                 <td>{weapon.stealth}</td>
                             </tr>
@@ -69,7 +69,7 @@ function Armors() {
                         <tr >
                             <th scope="col">Название</th>
                             <th scope="col">Цена</th>
-                            <th scope="col">Класс Брони</th>
+                            <th className={styles.columnArmorClass} scope="col">Класс Брони</th>
                             <th scope="col">Небходимая сила</th>
                             <th scope="col">Скрытность</th>
                         </tr>
@@ -79,7 +79,7 @@ function Armors() {
                             <tr key={weapon.id}>
                                 <td>{weapon.name}</td>
                                 <td>{weapon.price}</td>
-                                <td>{weapon.armorclass}</td>
+                                <td className={styles.columnArmorClass}>{weapon.armorclass}</td>
                                 <td>{weapon.strength}</td>
                                 <td>{weapon.stealth}</td>
                             </tr>
@@ -96,7 +96,7 @@ function Armors() {
                         <tr >
                             <th scope="col">Название</th>
                             <th scope="col">Цена</th>
-                            <th scope="col">Класс Брони</th>
+                            <th className={styles.columnArmorClass} scope="col">Класс Брони</th>
                             <th scope="col">Небходимая сила</th>
                             <th scope="col">Скрытность</th>
                         </tr>
@@ -106,7 +106,7 @@ function Armors() {
                             <tr key={weapon.id}>
                                 <td>{weapon.name}</td>
                                 <td>{weapon.price}</td>
-                                <td>{weapon.armorclass}</td>
+                                <td className={styles.columnArmorClass} >{weapon.armorclass}</td>
                                 <td>{weapon.strength}</td>
                                 <td>{weapon.stealth}</td>
                             </tr>

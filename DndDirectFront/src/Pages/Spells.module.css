@@ -1,0 +1,21 @@
+.SpellsConteiner {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    max-width: 450px;
+    margin-left: 35px;
+    border: 2px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
+    margin-top: 35px;
+
+}
+
+.SpellsList {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    margin-top: 10px;
+    height: 800px;
+    overflow: auto;
+}

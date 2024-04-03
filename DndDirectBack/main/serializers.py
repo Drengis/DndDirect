@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SimpleWeapons, MilitaryWeapons, LightArmors, MediumArmors, HeavyArmors
+from .models import SimpleWeapons, MilitaryWeapons, LightArmors, MediumArmors, HeavyArmors, Spells
 
 class SimpleWeaponsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,4 +24,9 @@ class MediumArmorsSerializer(serializers.ModelSerializer):
 class HeavyArmorsSerializer(serializers.ModelSerializer):
     class Meta:
         model = HeavyArmors
+        fields = '__all__'
+        
+class SpellsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Spells
         fields = '__all__'
