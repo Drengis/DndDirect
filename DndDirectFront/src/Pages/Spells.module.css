@@ -1,21 +1,63 @@
+.Content {
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+}
+
 .SpellsConteiner {
     display: flex;
     justify-content: start;
     flex-direction: column;
-    max-width: 450px;
-    margin-left: 35px;
+    max-width: 25%;
     border: 2px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
-    margin-top: 35px;
 
 }
 
 .SpellsList {
     display: flex;
-    justify-content: start;
     flex-direction: column;
     margin-top: 10px;
     height: 800px;
     overflow: auto;
+    padding: 1%;
+}
+
+.SpellInfo {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    margin-left: 35px;
+    width: 75%;
+    justify-content: center;
+}
+
+.selectedSpellTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.selectedSpellInfo {
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.selectedSpellInfo1 {
+    padding: 3%;
+    width: 400px;
+}
+
+.selectedSpellInfo2 {
+    padding: 3%;
+    width: 400px;
+}
+
+.SpellDiscription {
+    display: flex;
+    width: 800px;
+    text-align: justify
 }

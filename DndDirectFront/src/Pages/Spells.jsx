@@ -4,8 +4,9 @@ import Header from '../Components/Header';
 import SpellButton from '../Components/SpellButton';
 
 function Spells() {
-    const [SpellsData, setSpellsData] = useState([]);
+    const [spellsData, setSpellsData] = useState([]);
     const [searchText, setSearchText] = useState('');
+    const [selectedSpell, setSelectedSpell] = useState(null);
 
     useEffect(() => {
         // Загрузка данных из JSON файла
@@ -19,28 +20,67 @@ function Spells() {
         setSearchText(event.target.value);
     };
 
-    const filteredSpells = SpellsData.filter((spell) =>
+    const handleSpellClick = (id) => {
+        // Находим заклинание по его id
+        const spell = spellsData.find((spell) => spell.id === id);
+        setSelectedSpell(spell);
+    };
+
+    const filteredSpells = spellsData.filter((spell) =>
         spell.name.toLowerCase().includes(searchText.toLowerCase())
     );
 
     return (
         <>
             <Header />
-            <div className={styles.SpellsConteiner}>
-                <div className={`${styles.Search} input-group flex-nowrap `}>
-                    <span className={`${styles.SearchLabel} input-group-text bg-dark text-light`}>Поиск</span>
-                    <input
-                        type="text"
-                        className={`${styles.SearchInput} form-control bg-dark text-light`}
-                        aria-describedby="addon-wrapping"
-                        value={searchText}
-                        onChange={handleSearchChange}
-                    />
+            <div className={styles.Content}>
+                <div className={styles.SpellsContainer}>
+                    <div className={`${styles.Search} input-group flex-nowrap `}>
+                        <span className={`${styles.SearchLabel} input-group-text bg-dark text-light`}>Поиск</span>
+                        <input
+                            type="text"
+                            className={`${styles.SearchInput} form-control bg-dark text-light`}
+                            aria-describedby="addon-wrapping"
+                            value={searchText}
+                            onChange={handleSearchChange}
+                        />
+                    </div>
+                    <div className={styles.SpellsList}>
+                        {filteredSpells.sort((a, b) => a.level - b.level).map((spell) => (
+                            <SpellButton
+                                key={spell.id}
+                                id={spell.id}
+                                name={spell.name}
+                                onClick={handleSpellClick}
+                            />
+                        ))}
+                    </div>
                 </div>
-                <div className={styles.SpellsList}>
-                    {filteredSpells.sort((a, b) => a.level - b.level).map((spell) => (
-                        <SpellButton key={spell.id} name={spell.name} />
-                    ))}
+                <div className={styles.SpellInfo}>
+                    {selectedSpell && (
+                        <div>
+                            <div className={styles.selectedSpellTitle}>
+                                <h2>{selectedSpell.name}</h2>
+                            </div>
+                            <div className={styles.selectedSpellInfo}>
+                                <div className={styles.selectedSpellInfo1}>
+                                    <p>Школа: {selectedSpell.school}</p>
+                                    <p>Уровень: {selectedSpell.level}</p>
+                                    <p>Дистанция: {selectedSpell.range}</p>
+                                    <p>Длительность: {selectedSpell.duration}</p>
+                                </div>
+                                <div className={styles.selectedSpellInfo2}>
+                                    <p>Время применения: {selectedSpell.castingtime}</p>
+                                    <p>Ритуал: {selectedSpell.ritual}</p>
+                                    <p>Компаненты: {selectedSpell.components}</p>
+                                    <p>Материалы: {selectedSpell.materials}</p>
+                                </div>
+                            </div>
+                            <div className={styles.SpellDiscription}>
+                                {selectedSpell.text}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </>
