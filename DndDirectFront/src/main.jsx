@@ -16,15 +16,13 @@ import Charecters from './Pages/CharecterPages/Charecters.jsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/armors/" element={<Armors />} />
-        <Route path="/weapons/" element={<Weapons />} />
-        <Route path="/spells/" element={<Spells />} />
-        <Route path="/charecters/" element={<Charecters />} />
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/armors/" element={<Armors />} />
+      <Route path="/weapons/" element={<Weapons />} />
+      <Route path="/spells/" element={<Spells />} />
+      <Route path="/charecters/" element={<Charecters />} />
+    </Routes>
+  </BrowserRouter>
 )
