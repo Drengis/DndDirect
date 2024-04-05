@@ -4,7 +4,7 @@
     padding: 2%;
 }
 
-.SpellsConteiner {
+.SpellsContainer {
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -31,6 +31,9 @@
     margin-left: 35px;
     width: 75%;
     justify-content: center;
+    border: 2px solid aliceblue;
+    border-radius: 5%;
+    padding: 1%;
 }
 
 .selectedSpellTitle {

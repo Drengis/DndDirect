@@ -1,0 +1,14 @@
+.CharSideBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: fixed;
+    background-color: rgb(53, 53, 53);
+    width: 60px;
+    height: 100vh;
+}
+
+.CharSideBar button {
+    margin: 7px;
+}
