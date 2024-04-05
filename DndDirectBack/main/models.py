@@ -67,4 +67,14 @@ class Spells(models.Model):
 
     class Meta:
         db_table = 'spells'
+        
+class Сharacters(models.Model):
+    name = models.TextField()
+    сharclass = models.TextField(db_column='class')
+    race = models.TextField()
+    level = models.IntegerField()
+    
+
+    class Meta:
+        db_table = 'characters'
 

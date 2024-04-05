@@ -11,9 +11,7 @@ import HomePage from './Pages/HomePage.jsx'
 import Armors from './Pages/Armors.jsx'
 import Weapons from './Pages/Weapons.jsx'
 import Spells from './Pages/Spells.jsx'
-import Charecters from './Pages/CharecterPages/Charecters.jsx'
-
-
+import Charecters from './Pages/CharacterPages/Characters.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

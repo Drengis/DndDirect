@@ -1,41 +1,47 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import SimpleWeapons, MilitaryWeapons, LightArmors, MediumArmors, HeavyArmors, Spells
+from .models import SimpleWeapons, MilitaryWeapons, LightArmors, MediumArmors, HeavyArmors, Spells, Сharacters
 from .serializers import *
 
 class SimpleWeaponsViewGet(APIView):
     def get(self, request):
-        weapons = SimpleWeapons.objects.all()
-        serializer = SimpleWeaponsSerializer(weapons, many=True)
+        Sweapons = SimpleWeapons.objects.all()
+        serializer = SimpleWeaponsSerializer(Sweapons, many=True)
         return Response(serializer.data)
     
     
 class MilitaryWeaponsViewGet(APIView):
     def get(self, request):
-        weapons = MilitaryWeapons.objects.all()
-        serializer = MilitaryWeaponsSerializer(weapons, many=True)
+        Mweapons = MilitaryWeapons.objects.all()
+        serializer = MilitaryWeaponsSerializer(Mweapons, many=True)
         return Response(serializer.data)
     
 class LightArmorsViewGet(APIView):
     def get(self, request):
-        weapons = LightArmors.objects.all()
-        serializer = LightArmorsSerializer(weapons, many=True)
+        Larmors = LightArmors.objects.all()
+        serializer = LightArmorsSerializer(Larmors, many=True)
         return Response(serializer.data)
        
 class MediumArmorsViewGet(APIView):
     def get(self, request):
-        weapons = MediumArmors.objects.all()
-        serializer = MediumArmorsSerializer(weapons, many=True)
+        Marmors = MediumArmors.objects.all()
+        serializer = MediumArmorsSerializer(Marmors, many=True)
         return Response(serializer.data)   
     
 class HeavyArmorsViewGet(APIView):
     def get(self, request):
-        weapons = HeavyArmors.objects.all()
-        serializer = HeavyArmorsSerializer(weapons, many=True)
+        Harmors = HeavyArmors.objects.all()
+        serializer = HeavyArmorsSerializer(Harmors, many=True)
         return Response(serializer.data)       
 
 class SpellsViewGet(APIView):
     def get(self, request):
-        weapons = Spells.objects.all()
-        serializer = SpellsSerializer(weapons, many=True)
+        spells = Spells.objects.all()
+        serializer = SpellsSerializer(spells, many=True)
         return Response(serializer.data)       
+
+class CharactersViewGet(APIView):
+    def get(self, request):
+        char = Сharacters.objects.all()
+        serializer = СharactersSerializer(char, many=True)
+        return Response(serializer.data)   

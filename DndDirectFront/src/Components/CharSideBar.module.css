@@ -1,14 +1,23 @@
 .CharSideBar {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-between;
     align-items: center;
-    position: fixed;
     background-color: rgb(53, 53, 53);
     width: 60px;
-    height: 100vh;
+    height: 95vh;
 }
 
 .CharSideBar button {
     margin: 7px;
+}
+
+.CharButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.SaveLoadButtons {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,0 +1,47 @@
+.MainConteiner {
+    display: flex;
+}
+
+.CharectersTitle {
+    display: flex;
+}
+
+.CharecterConteiner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.CharectersList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1%;
+}
+
+.Charecter {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid aliceblue;
+    border-radius: 5%;
+    padding: 10%;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+
+.SaveLoadSideBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-color: rgb(53, 53, 53);
+    width: 60px;
+    height: 95vh;
+}
+
+.SLButton {
+    margin: 7px;
+}
