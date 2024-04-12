@@ -9,7 +9,6 @@ function Spells() {
     const [selectedSpell, setSelectedSpell] = useState(null);
 
     useEffect(() => {
-        // Загрузка данных из JSON файла
         fetch('http://127.0.0.1:8000/spells/get')
             .then((response) => response.json())
             .then((data) => setSpellsData(data))

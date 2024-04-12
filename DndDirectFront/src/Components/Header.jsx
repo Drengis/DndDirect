@@ -1,8 +1,10 @@
 import styles from "./Header.module.css"
 import Button from '../Components/Button'
 import { Link } from 'react-router-dom'
+import Registration from "../Pages/CharacterPages/Registration";
 
 function Header() {
+
     return (
         <>
             <div className={styles.Header}>
@@ -16,10 +18,12 @@ function Header() {
                 <div className={styles.HeaderLogin}>
                     <Button name='Авторизация' />
                     <Button name='Регистрация' />
+
                 </div>
             </div>
         </>
     );
 }
+
 
 export default Header
