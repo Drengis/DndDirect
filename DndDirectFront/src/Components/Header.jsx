@@ -1,9 +1,14 @@
-import styles from "./Header.module.css"
-import Button from '../Components/Button'
-import { Link } from 'react-router-dom'
-import Registration from "../Pages/CharacterPages/Registration";
+import React from 'react';
+import styles from "./Header.module.css";
+import Button from '../Components/Button';
+import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
+import RegistrationModal from '../cms/RegStore';
+import AuthorizationModal from '../cms/AuthStore';
+import Registration from './Registration';
+import Authorization from './Authorization';
 
-function Header() {
+const Header = observer(() => {
 
     return (
         <>
@@ -16,14 +21,15 @@ function Header() {
                     <Link to="/charecters/"> <Button name='Персонажи' /> </Link>
                 </div>
                 <div className={styles.HeaderLogin}>
-                    <Button name='Авторизация' />
-                    <Button name='Регистрация' />
+                    <Button name='Авторизация' onclick={AuthorizationModal.open} />
+                    <Button name='Регистрация' onclick={RegistrationModal.open} />
+                    {RegistrationModal.visible && <Registration />}
+                    {AuthorizationModal.visible && <Authorization />}
 
                 </div>
             </div>
         </>
     );
-}
+})
 
-
-export default Header
+export default Header;

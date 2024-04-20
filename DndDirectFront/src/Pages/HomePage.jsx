@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './HomePage.module.css'
 import Header from '../Components/Header';
+import Registration from '../Components/Registration';
 
 
 function HomePage() {
