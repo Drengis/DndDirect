@@ -23,5 +23,6 @@ urlpatterns = [
     path('heavy-armors/get', views.HeavyArmorsViewGet.as_view()),
     path('spells/get', views.SpellsViewGet.as_view()),
     path('characters/get', views.CharactersViewGet.as_view()),
+    path('users/', views.UsersViewSet.as_view({'get': 'list', 'post': 'create'}), name='users-list'),
     
 ]

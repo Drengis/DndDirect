@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class SimpleWeapons(models.Model):
     name = models.CharField(max_length=64)
@@ -77,4 +78,3 @@ class Сharacters(models.Model):
 
     class Meta:
         db_table = 'characters'
-

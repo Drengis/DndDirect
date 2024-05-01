@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import SimpleWeapons, MilitaryWeapons, LightArmors, MediumArmors, HeavyArmors, Spells, Сharacters
+from .models import *
+from django.contrib.auth.models import User
 
 class SimpleWeaponsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -34,4 +35,9 @@ class SpellsSerializer(serializers.ModelSerializer):
 class СharactersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Сharacters
+        fields = '__all__'
+        
+class UsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
         fields = '__all__'
