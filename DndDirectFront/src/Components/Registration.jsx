@@ -11,52 +11,27 @@ const Registration = observer(() => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const checkUsernameAndEmail = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/users');
-            if (response.ok) {
-                const data = await response.json();
-                const exists = data.some(user => user.username === username || user.email === email);
-                if (exists) {
-                    if (data.some(user => user.username === username)) {
-                        console.log('Такой логин уже существует');
-                    }
-                    if (data.some(user => user.email === email)) {
-                        console.log('Такая почта уже существует');
-                    }
-                } else {
-                    handleRegistration();
-                }
-            } else {
-                console.error('Ошибка при проверке логина и почты');
-            }
-        } catch (error) {
-            console.error('Ошибка при отправке запроса:', error);
-        }
-    };
-
     const handleRegistration = async () => {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/users/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    username: username,
-                    password: password,
-                }),
-            });
+        const requestData = {
+            email: email,
+            username: username,
+            password: password,
+        };
 
-            if (response.ok) {
-                console.log('Пользователь успешно создан');
-            } else {
-                console.error('Ошибка при создании пользователя');
-            }
-        } catch (error) {
-            console.error('Ошибка при отправке запроса:', error);
-        }
+        console.log('Request Data:', requestData);
+
+        const response = await fetch('http://127.0.0.1:8000/users/create/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+        });
+
+        const responseData = await response.json();
+        console.log('Response Data:', responseData);
+
+        // Остальной код обработки ответа
     };
 
     const Email = (
@@ -98,7 +73,7 @@ const Registration = observer(() => {
         </div>
     );
 
-    const ConfirmButton = <Button name="Подтвердить" onclick={checkUsernameAndEmail} />;
+    const ConfirmButton = <Button name="Подтвердить" onclick={handleRegistration} />;
 
     return (
         <Modal onclick={RegistrationModal.close} title="Регистрация" body={[Email, Username, Password]} footer={ConfirmButton}>

@@ -19,26 +19,24 @@ const Authorization = observer(() => {
         setPassword(event.target.value);
     };
 
-    const handleConfirmClick = () => {
-        axios
-            .post('http://127.0.0.1:8000/token/', {
-                username: username,
-                password: password,
-            })
-            .then((response) => {
-                if (response.status === 200) {
-                    LogininStore.setUsername(username);
-                    LogininStore.setPassword(password);
-                    LogininStore.setIsAuth(true);
-                    console.log('Авторизация успешна')
-                } else {
-                    console.error('Неверный логин или пароль');
-                }
-            })
-            .catch((error) => {
-                console.error('Ошибка при проверке пользователя');
-                console.error(error);
-            });
+    const handleConfirmClick = async () => {
+        const requestData = {
+            username: username,
+            password: password,
+        };
+
+        console.log('Request Data:', requestData);
+
+        const response = await fetch('http://127.0.0.1:8000/users/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestData),
+        });
+
+        const responseData = await response.json();
+        console.log('Response Data:', responseData);
     };
 
     const Username = (

@@ -8,6 +8,7 @@ import SaveIcon from '../../Components/Icons/Save.png';
 import LoadIcon from '../../Components/Icons/Load.png';
 import DownloadIcon from '../../Components/Icons/Download.png';
 
+
 function Characters() {
     const [CharactersData, setCharactersData] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
