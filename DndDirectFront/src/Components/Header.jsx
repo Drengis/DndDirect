@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 import RegistrationModal from '../cms/RegStore';
 import AuthorizationModal from '../cms/AuthStore';
-import Registration from './Registration';
-import Authorization from './Authorization';
+import Registration from '../Components/Registr.Auth/Registration';
+import Authorization from '../Components/Registr.Auth/Authorization';
 
 const Header = observer(() => {
 

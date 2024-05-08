@@ -1,7 +1,6 @@
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
-from main import views 
+from django.urls import path
+from main import views, authentication
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -10,9 +9,9 @@ from rest_framework_simplejwt.views import (
 
 urlpatterns = [
     path('admin', admin.site.urls),
-    path('users/', views.UsersViewSet.as_view({'get': 'list'}), name='users-list'),
-    path('users/create/', views.UsersViewSet.as_view({'post': 'create'}), name='users-create'),
-    path('users/login/', views.UsersViewSet.as_view({'post': 'login'}), name='users-login'),
+    path('users/', authentication.UsersViewSet.as_view({'get': 'list'}), name='users-list'),
+    path('users/create/', authentication.UsersViewSet.as_view({'post': 'create'}), name='users-create'),
+    path('users/login/', authentication.UsersViewSet.as_view({'post': 'login'}), name='users-login'),
     
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

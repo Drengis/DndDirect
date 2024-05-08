@@ -1,38 +1,15 @@
 import React, { useState } from 'react';
 import styles from './Registration.module.css';
-import Modal from './Modal';
-import RegistrationModal from '../cms/RegStore';
+import Modal from '../Modal';
+import RegistrationModal from '../../cms/RegStore';
 import { observer } from 'mobx-react-lite';
-import Button from './Button';
-import Alert from './Alert';
+import Button from '../Button';
+import AuthApi from '../../requests/Auth.api';
 
 const Registration = observer(() => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleRegistration = async () => {
-        const requestData = {
-            email: email,
-            username: username,
-            password: password,
-        };
-
-        console.log('Request Data:', requestData);
-
-        const response = await fetch('http://127.0.0.1:8000/users/create/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData),
-        });
-
-        const responseData = await response.json();
-        console.log('Response Data:', responseData);
-
-        // Остальной код обработки ответа
-    };
 
     const Email = (
         <div key="email" className={`${styles.EmailContainer} input-group flex-nowrap `}>
@@ -73,7 +50,7 @@ const Registration = observer(() => {
         </div>
     );
 
-    const ConfirmButton = <Button name="Подтвердить" onclick={handleRegistration} />;
+    const ConfirmButton = <Button name="Подтвердить" onclick={() => AuthApi.registration(username, password, email)} />;
 
     return (
         <Modal onclick={RegistrationModal.close} title="Регистрация" body={[Email, Username, Password]} footer={ConfirmButton}>

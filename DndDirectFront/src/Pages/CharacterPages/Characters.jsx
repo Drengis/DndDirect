@@ -7,6 +7,7 @@ import CreateIcon from '../../Components/Icons/Create.png';
 import SaveIcon from '../../Components/Icons/Save.png';
 import LoadIcon from '../../Components/Icons/Load.png';
 import DownloadIcon from '../../Components/Icons/Download.png';
+import LogininStore from '../../cms/LogininStore';
 
 
 function Characters() {
@@ -14,21 +15,26 @@ function Characters() {
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        // Загрузка данных из JSON файла
-        fetch('http://127.0.0.1:8000/characters/get')
-            .then(response => {
-                if (response.status === 401) {
-                    setErrorMessage('Вы не авторизованы');
-                    throw new Error('Unauthorized');
-                }
-                return response.json();
-            })
-            .then(data => setCharactersData(data))
-            .catch(error => {
-                if (error.message !== 'Unauthorized') {
-                    console.error('Ошибка при получении данных персонажей:', error);
-                }
-            });
+        async function fetchData() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/characters/get', {
+                    headers: {
+                        'Authorization': `Bearer ${LogininStore.token}`
+                    }
+                });
+                const data = await response.json();
+                setCharactersData(data);
+            } catch (error) {
+                console.error('Ошибка при получении данных персонажей:', error);
+                setErrorMessage('Произошла ошибка при загрузке данных');
+            }
+        }
+
+        if (LogininStore.isAuth) {
+            fetchData();
+        } else {
+            setErrorMessage('Вы не авторизованы');
+        }
     }, []);
 
     return (

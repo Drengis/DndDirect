@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styles from './Authorization.module.css';
-import Modal from './Modal';
-import Button from './Button';
-import AuthorizationModal from '../cms/AuthStore';
+import Modal from '../Modal';
+import Button from '../Button';
+import AuthorizationModal from '../../cms/AuthStore';
 import { observer } from 'mobx-react-lite';
-import axios from 'axios';
-import LogininStore from '../cms/LogininStore';
+import AuthApi from '../../requests/Auth.api';
 
 const Authorization = observer(() => {
     const [username, setUsername] = useState('');
@@ -17,26 +16,6 @@ const Authorization = observer(() => {
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
-    };
-
-    const handleConfirmClick = async () => {
-        const requestData = {
-            username: username,
-            password: password,
-        };
-
-        console.log('Request Data:', requestData);
-
-        const response = await fetch('http://127.0.0.1:8000/users/login/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(requestData),
-        });
-
-        const responseData = await response.json();
-        console.log('Response Data:', responseData);
     };
 
     const Username = (
@@ -66,7 +45,7 @@ const Authorization = observer(() => {
     );
 
     const ConfirmButton = (
-        <Button name="Подтвердить" onclick={handleConfirmClick} />
+        <Button name="Подтвердить" onclick={() => AuthApi.authorization(username, password)} />
     );
 
     return (
