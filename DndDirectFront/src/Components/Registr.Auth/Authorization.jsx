@@ -4,7 +4,7 @@ import Modal from '../Modal';
 import Button from '../Button';
 import AuthorizationModal from '../../cms/AuthStore';
 import { observer } from 'mobx-react-lite';
-import AuthApi from '../../requests/Auth.api';
+import { authorization } from '../../requests/Auth.api'
 
 const Authorization = observer(() => {
     const [username, setUsername] = useState('');
@@ -31,6 +31,7 @@ const Authorization = observer(() => {
         </div>
     );
 
+
     const Password = (
         <div key="password" className={`${styles.PasswordContainer} input-group flex-nowrap `}>
             <span className={`${styles.PasswordLabel} input-group-text bg-dark text-light`}>Пароль</span>
@@ -45,7 +46,7 @@ const Authorization = observer(() => {
     );
 
     const ConfirmButton = (
-        <Button name="Подтвердить" onclick={() => AuthApi.authorization(username, password)} />
+        <Button name="Подтвердить" onclick={() => authorization(username, password)} />
     );
 
     return (

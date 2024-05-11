@@ -1,69 +1,79 @@
 import LogininStore from "../cms/LogininStore";
+import AlertStore from "../cms/AlertStore";
+import RegStore from "../cms/RegStore";
+import AuthStore from "../cms/AuthStore";
 
-class AuthApi {
-    authorization = async (username, password) => {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/users/login/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password,
-                }),
-            });
 
-            if (!response.ok) {
-                throw new Error('Authorization failed');
-            }
+const authorization = async (username, password) => {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/users/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            }),
+        });
 
-            const responseData = await response.json();
-
-            LogininStore.setIsAuth(true);
-            LogininStore.setID(responseData.user.id);
-            LogininStore.setUsername(responseData.user.username);
-            LogininStore.setPassword(responseData.user.password);
-            LogininStore.setEmail(responseData.user.email);
-            LogininStore.setToken(responseData.token);
-
-        } catch (error) {
-            console.error(error);
+        if (!response.ok) {
+            AlertStore.AddErrorAlert('Неверный логин или пароль')
+            return
         }
-    };
 
-    registration = async (username, password, email) => {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/users/create/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    username: username,
-                    password: password,
-                    email: email
-                }),
-            });
+        const responseData = await response.json();
 
-            if (!response.ok) {
-                throw new Error('Registration failed');
-            }
+        LogininStore.setIsAuth(true);
+        LogininStore.setID(responseData.user.id);
+        LogininStore.setUsername(responseData.user.username);
+        LogininStore.setPassword(responseData.user.password);
+        LogininStore.setEmail(responseData.user.email);
+        LogininStore.setToken(responseData.token);
+        AlertStore.AddSuccessAlert('Авторизация успешна')
+        AuthStore.close()
 
-            const responseData = await response.json();
-            console.log(responseData)
 
-            LogininStore.setIsAuth(true);
-            LogininStore.setID(responseData.user.id);
-            LogininStore.setUsername(responseData.user.username);
-            LogininStore.setPassword(responseData.user.password);
-            LogininStore.setEmail(responseData.user.email);
-            LogininStore.setToken(responseData.token);
 
-        } catch (error) {
-            console.error(error);
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+const registration = async (username, password, email) => {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/users/create/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+                email: email
+            }),
+        });
+
+        if (!response.ok) {
+            AlertStore.AddErrorAlert('Некорректные данные')
+            return
         }
-    };
-}
 
-export default new AuthApi();
+        const responseData = await response.json();
+
+        LogininStore.setIsAuth(true);
+        LogininStore.setID(responseData.user.id);
+        LogininStore.setUsername(responseData.user.username);
+        LogininStore.setPassword(responseData.user.password);
+        LogininStore.setEmail(responseData.user.email);
+        LogininStore.setToken(responseData.token);
+        AlertStore.AddSuccessAlert('Регистрация успешна')
+        RegStore.close()
+
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
+export { authorization, registration }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { observer } from 'mobx-react-lite';
 import styles from './Characters.module.css';
 import Header from '../../Components/Header';
 import CharSideBar from '../../Components/CharSideBar';
@@ -9,13 +10,12 @@ import LoadIcon from '../../Components/Icons/Load.png';
 import DownloadIcon from '../../Components/Icons/Download.png';
 import LogininStore from '../../cms/LogininStore';
 
-
-function Characters() {
+const Characters = observer(() => {
     const [CharactersData, setCharactersData] = useState([]);
-    const [errorMessage, setErrorMessage] = useState('');
+    const [UnauthMessage, setUnauthMessage] = useState()
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             try {
                 const response = await fetch('http://127.0.0.1:8000/characters/get', {
                     headers: {
@@ -26,16 +26,15 @@ function Characters() {
                 setCharactersData(data);
             } catch (error) {
                 console.error('Ошибка при получении данных персонажей:', error);
-                setErrorMessage('Произошла ошибка при загрузке данных');
             }
-        }
+        };
 
-        if (LogininStore.isAuth) {
+        if (LogininStore.isAuth === true) {
             fetchData();
         } else {
-            setErrorMessage('Вы не авторизованы');
+            setUnauthMessage('Вы не авторизованы');
         }
-    }, []);
+    }, [LogininStore.isAuth]);
 
     return (
         <>
@@ -59,11 +58,9 @@ function Characters() {
                     <div className={styles.CharectersTitle}>
                         <h1>Персонажи:</h1>
                     </div>
-                    {errorMessage ? (
-                        <div><h1>{errorMessage}</h1></div>
-                    ) : (
-                        <div className={styles.CharectersList}>
-                            {CharactersData.map(character => (
+                    <div className={styles.CharectersList}>
+                        {LogininStore.isAuth === true ? (
+                            Array.isArray(CharactersData) && CharactersData.map(character => (
                                 <div className={styles.Charecter} key={character.id}>
                                     <h2>{character.name}</h2>
                                     <p>Класс: {character.сharclass}</p>
@@ -71,13 +68,15 @@ function Characters() {
                                     <p>Ур: {character.level}</p>
                                     <Button name='Перейти' />
                                 </div>
-                            ))}
-                        </div>
-                    )}
+                            ))
+                        ) : (
+                            <h1>{UnauthMessage}</h1>
+                        )}
+                    </div>
                 </div>
             </div>
         </>
-    );
-}
+    )
+});
 
 export default Characters;

@@ -4,7 +4,7 @@ import Modal from '../Modal';
 import RegistrationModal from '../../cms/RegStore';
 import { observer } from 'mobx-react-lite';
 import Button from '../Button';
-import AuthApi from '../../requests/Auth.api';
+import { registration } from '../../requests/Auth.api'
 
 const Registration = observer(() => {
     const [email, setEmail] = useState('');
@@ -50,7 +50,7 @@ const Registration = observer(() => {
         </div>
     );
 
-    const ConfirmButton = <Button name="Подтвердить" onclick={() => AuthApi.registration(username, password, email)} />;
+    const ConfirmButton = <Button name="Подтвердить" onclick={() => registration(username, password, email)} />;
 
     return (
         <Modal onclick={RegistrationModal.close} title="Регистрация" body={[Email, Username, Password]} footer={ConfirmButton}>

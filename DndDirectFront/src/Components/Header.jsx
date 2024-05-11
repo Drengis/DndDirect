@@ -7,6 +7,7 @@ import RegistrationModal from '../cms/RegStore';
 import AuthorizationModal from '../cms/AuthStore';
 import Registration from '../Components/Registr.Auth/Registration';
 import Authorization from '../Components/Registr.Auth/Authorization';
+import AlertBox from './AlertBox/AlertBox';
 
 const Header = observer(() => {
 
@@ -19,6 +20,7 @@ const Header = observer(() => {
                     <Link to="/weapons/"> <Button name='Оружие' /> </Link>
                     <Link to="/spells/"> <Button name='Заклинания' /> </Link>
                     <Link to="/charecters/"> <Button name='Персонажи' /> </Link>
+
                 </div>
                 <div className={styles.HeaderLogin}>
                     <Button name='Авторизация' onclick={AuthorizationModal.open} />
@@ -28,6 +30,7 @@ const Header = observer(() => {
 
                 </div>
             </div>
+            <AlertBox />
         </>
     );
 })
