@@ -1,5 +1,6 @@
 import styles from "./CharSideBar.module.css"
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 import NotesIcon from '../Components/Icons/Notes.png'
 import CharIcon from '../Components/Icons/Сhar.png'
 import SpellsIcon from '../Components/Icons/Spells.png'
@@ -11,30 +12,32 @@ import SaveIcon from '../Components/Icons/Save.png'
 import LoadIcon from '../Components/Icons/Load.png'
 import DownloadIcon from '../Components/Icons/Download.png'
 
+
 function CharSideBar() {
+    const { id } = useParams();
 
     return (
         <>
             <div className={styles.CharSideBar}>
                 <div className={styles.CharButtons}>
-                    <button type="button" className="btn btn-secondary" title="Персанаж">
+                    <Link to={`/character/info/${id}/`} className={`${styles.link} btn btn-secondary`} title="Персанаж">
                         <img src={CharIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Заклинания">
+                    </Link>
+                    <Link to={`/character/spells/${id}/`} className={`${styles.link} btn btn-secondary`} title="Заклинания">
                         <img src={SpellsIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Внешний вид">
+                    </Link>
+                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Внешний вид">
                         <img src={AppearanceIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Владения">
+                    </Link>
+                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Владения">
                         <img src={PossessionsIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Предыстория">
+                    </Link>
+                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Предыстория">
                         <img src={HistoryIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Заметки">
+                    </Link>
+                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Заметки">
                         <img src={NotesIcon} />
-                    </button>
+                    </Link>
                 </div>
                 <div className={styles.SaveLoadButtons}>
                     <button type="button" className="btn btn-secondary" title="Создать персонажа">

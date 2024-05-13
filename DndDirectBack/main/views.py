@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
+from rest_framework import status
 from .models import *
 from .serializers import *
 
@@ -41,11 +42,18 @@ class SpellsViewGet(APIView):
         serializer = SpellsSerializer(spells, many=True)
         return Response(serializer.data)       
 
-class CharactersViewGet(APIView):
+class CharactersViewSet(ViewSet):
     permission_classes = [IsAuthenticated]
     
-    def get(self, request):
+    def all(self, request):
         char = Сharacters.objects.all()
         serializer = СharactersSerializer(char, many=True)
         return Response(serializer.data)   
     
+    def specific(self, request, id):
+        try:
+            char = Сharacters.objects.get(id=id)
+            serializer = СharactersSerializer(char)
+            return Response(serializer.data)
+        except Сharacters.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

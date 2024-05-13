@@ -8,6 +8,7 @@ import AuthorizationModal from '../cms/AuthStore';
 import Registration from '../Components/Registr.Auth/Registration';
 import Authorization from '../Components/Registr.Auth/Authorization';
 import AlertBox from './AlertBox/AlertBox';
+import LogininStore from '../cms/LogininStore';
 
 const Header = observer(() => {
 
@@ -19,15 +20,22 @@ const Header = observer(() => {
                     <Link to="/armors/"> <Button name='Доспехи' /> </Link>
                     <Link to="/weapons/"> <Button name='Оружие' /> </Link>
                     <Link to="/spells/"> <Button name='Заклинания' /> </Link>
-                    <Link to="/charecters/"> <Button name='Персонажи' /> </Link>
+                    <Link to="/characters/"> <Button name='Персонажи' /> </Link>
 
                 </div>
                 <div className={styles.HeaderLogin}>
-                    <Button name='Авторизация' onclick={AuthorizationModal.open} />
-                    <Button name='Регистрация' onclick={RegistrationModal.open} />
+                    {LogininStore.isAuth === true ? (
+                        <div>
+                            <Button name='Выйти' onclick={LogininStore.singOut} />
+                        </div>
+                    ) : (
+                        <div>
+                            <Button name='Авторизация' onclick={AuthorizationModal.open} />
+                            <Button name='Регистрация' onclick={RegistrationModal.open} />
+                        </div>
+                    )}
                     {RegistrationModal.visible && <Registration />}
                     {AuthorizationModal.visible && <Authorization />}
-
                 </div>
             </div>
             <AlertBox />

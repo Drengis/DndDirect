@@ -23,7 +23,11 @@ urlpatterns = [
     path('medium-armors/get', views.MediumArmorsViewGet.as_view()),
     path('heavy-armors/get', views.HeavyArmorsViewGet.as_view()),
     path('spells/get', views.SpellsViewGet.as_view()),
-    path('characters/get', views.CharactersViewGet.as_view()),
+    
+    path('characters/get/all', views.CharactersViewSet.as_view({'get': 'all'})),
+    path('characters/get/<int:id>', views.CharactersViewSet.as_view({'get': 'specific'})),
+    
+
     
     
 ]

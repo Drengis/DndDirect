@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import styles from './Characters.module.css';
+import styles from './CharactersList.module.css';
 import Header from '../../Components/Header';
-import CharSideBar from '../../Components/CharSideBar';
 import Button from '../../Components/Button';
 import CreateIcon from '../../Components/Icons/Create.png';
 import SaveIcon from '../../Components/Icons/Save.png';
@@ -10,14 +10,14 @@ import LoadIcon from '../../Components/Icons/Load.png';
 import DownloadIcon from '../../Components/Icons/Download.png';
 import LogininStore from '../../cms/LogininStore';
 
-const Characters = observer(() => {
+const CharactersList = observer(() => {
     const [CharactersData, setCharactersData] = useState([]);
     const [UnauthMessage, setUnauthMessage] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/characters/get', {
+                const response = await fetch('http://127.0.0.1:8000/characters/get/all', {
                     headers: {
                         'Authorization': `Bearer ${LogininStore.token}`
                     }
@@ -66,7 +66,7 @@ const Characters = observer(() => {
                                     <p>Класс: {character.сharclass}</p>
                                     <p>Раса: {character.race}</p>
                                     <p>Ур: {character.level}</p>
-                                    <Button name='Перейти' />
+                                    <Link to={`/character/info/${character.id}/`}> <Button name='Персонажи' /> </Link>
                                 </div>
                             ))
                         ) : (
@@ -79,4 +79,4 @@ const Characters = observer(() => {
     )
 });
 
-export default Characters;
+export default CharactersList;

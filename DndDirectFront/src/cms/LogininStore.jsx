@@ -42,6 +42,15 @@ class LogininStore {
     setIsAuth = action((isAuth) => {
         this.isAuth = isAuth;
     });
+
+    singOut = action(() => {
+        this.token = '';
+        this.username = '';
+        this.password = '';
+        this.email = '';
+        this.id = '';
+        this.isAuth = false
+    })
 }
 
 export default new LogininStore();

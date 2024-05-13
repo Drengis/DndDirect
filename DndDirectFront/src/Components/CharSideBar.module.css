@@ -12,6 +12,10 @@
     margin: 7px;
 }
 
+.CharSideBar .link {
+    margin: 7px;
+}
+
 .CharButtons {
     display: flex;
     flex-direction: column;
