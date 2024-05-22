@@ -26,32 +26,32 @@ function CharSideBar() {
                     <Link to={`/character/spells/${id}/`} className={`${styles.link} btn btn-secondary`} title="Заклинания">
                         <img src={SpellsIcon} />
                     </Link>
-                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Внешний вид">
+                    <Link to={`/character/app/${id}/`} className={`${styles.link} btn btn-secondary`} title="Внешний вид">
                         <img src={AppearanceIcon} />
                     </Link>
-                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Владения">
+                    <Link to={`/character/poss/${id}/`} className={`${styles.link} btn btn-secondary`} title="Владения">
                         <img src={PossessionsIcon} />
                     </Link>
-                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Предыстория">
+                    <Link to={`/character/history/${id}/`} className={`${styles.link} btn btn-secondary`} title="Предыстория">
                         <img src={HistoryIcon} />
                     </Link>
-                    <Link type="button" className={`${styles.link} btn btn-secondary`} title="Заметки">
+                    <Link to={`/character/notes/${id}/`} className={`${styles.link} btn btn-secondary`} title="Заметки">
                         <img src={NotesIcon} />
                     </Link>
                 </div>
                 <div className={styles.SaveLoadButtons}>
-                    <button type="button" className="btn btn-secondary" title="Создать персонажа">
+                    <Link to={`/character/create/`} className={`${styles.link} btn btn-secondary`} title="Создать персонажа">
                         <img src={CreateIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Сохранить">
+                    </Link>
+                    <Link className={`${styles.link} btn btn-secondary`} title="Сохранить">
                         <img src={SaveIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Загрузить">
+                    </Link>
+                    <Link className={`${styles.link} btn btn-secondary`} title="Загрузить">
                         <img src={LoadIcon} />
-                    </button>
-                    <button type="button" className="btn btn-secondary" title="Скачать">
+                    </Link>
+                    <Link className={`${styles.link} btn btn-secondary`} title="Скачать">
                         <img src={DownloadIcon} />
-                    </button>
+                    </Link>
                 </div>
             </div>
         </>

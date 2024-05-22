@@ -74,6 +74,9 @@ class Сharacters(models.Model):
     сharclass = models.TextField(db_column='class')
     race = models.TextField()
     level = models.IntegerField()
+    worldview = models.TextField()
+    history = models.TextField()
+    experience = models.IntegerField()
     
 
     class Meta:

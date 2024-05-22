@@ -1,23 +1,20 @@
-.CharSideBar {
+.MainConteiner {
+    display: flex;
+}
+
+.SideBar {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     background-color: rgb(53, 53, 53);
     width: 60px;
     height: 95vh;
 }
 
-.CharSideBar .link {
-    margin: 7px;
-}
-
-.CharButtons {
+.CharConteiner {
     display: flex;
     flex-direction: column;
-}
-
-.SaveLoadButtons {
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    align-items: center;
 }

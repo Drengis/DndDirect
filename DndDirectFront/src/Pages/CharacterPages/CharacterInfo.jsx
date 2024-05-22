@@ -32,6 +32,8 @@ const CharacterInfo = observer(() => {
         } else {
             setUnauthMessage('Вы не авторизованы');
         }
+
+        console.log(CharactersData)
     }, [LogininStore.isAuth]);
 
 
@@ -43,7 +45,26 @@ const CharacterInfo = observer(() => {
                     <CharSideBar />
                 </div>
                 <div className={styles.CharConteiner}>
-                    <h1> {CharactersData.name} </h1>
+                    {LogininStore.isAuth === true ? (
+                        <div className={styles.CharInfo}>
+                            <div className={styles.CharName}>
+                                <h1> {CharactersData.name} </h1>
+                            </div>
+                            <div className={styles.BaseInfo}>
+                                <h2> Раса: {CharactersData.race} </h2>
+                                <h2> Класс: {CharactersData.сharclass}</h2>
+                                <h2> Предыстория: {CharactersData.history}</h2>
+                                <h2> Мировозрение: {CharactersData.worldview}</h2>
+                                <h2> Уровень: {CharactersData.level}</h2>
+                                <h2> Опыт: {CharactersData.experience}</h2>
+                            </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <h1> {UnauthMessage} </h1>
+                        </div>
+                    )}
+
                 </div>
 
             </div>
