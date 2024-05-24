@@ -1,15 +1,11 @@
 .MainConteiner {
     display: flex;
+    color: rgb(250, 250, 235);
 }
 
-.SideBar {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    background-color: rgb(53, 53, 53);
-    width: 60px;
-    height: 95vh;
+h1 {
+    font-size: 44px;
+    color: rgb(255, 255, 255);
 }
 
 .CharConteiner {
@@ -17,4 +13,51 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+}
+
+.ChangeButton {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    height: 40px;
+}
+
+/* Верхний контейнер */
+
+.TopInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1%;
+}
+
+.CharName {
+    display: flex;
+    align-items: center;
+}
+
+.BaseInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.InfoConteiner {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.ButtomInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1%;
+}
+
+.Left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }

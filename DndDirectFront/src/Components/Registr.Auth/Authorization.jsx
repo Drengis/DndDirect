@@ -18,6 +18,16 @@ const Authorization = observer(() => {
         setPassword(event.target.value);
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleConfirm();
+        }
+    };
+
+    const handleConfirm = () => {
+        authorization(username, password);
+    };
+
     const Username = (
         <div key="username" className={`${styles.UsernameContainer} input-group flex-nowrap `}>
             <span className={`${styles.UsernameLabel} input-group-text bg-dark text-light`}>Логин</span>
@@ -27,10 +37,10 @@ const Authorization = observer(() => {
                 aria-describedby="addon-wrapping"
                 value={username}
                 onChange={handleUsernameChange}
+                onKeyDown={handleKeyDown}
             />
         </div>
     );
-
 
     const Password = (
         <div key="password" className={`${styles.PasswordContainer} input-group flex-nowrap `}>
@@ -41,12 +51,13 @@ const Authorization = observer(() => {
                 aria-describedby="addon-wrapping"
                 value={password}
                 onChange={handlePasswordChange}
+                onKeyDown={handleKeyDown}
             />
         </div>
     );
 
     const ConfirmButton = (
-        <Button name="Подтвердить" onclick={() => authorization(username, password)} />
+        <Button name="Подтвердить" onclick={handleConfirm} />
     );
 
     return (

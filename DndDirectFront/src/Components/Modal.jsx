@@ -10,7 +10,7 @@ function Modal(props) {
         }
     };
 
-    const handleModalClick = () => {
+    const handleModalClick = (event) => {
         // Предотвращаем всплытие события клика внутри модального окна
         event.stopPropagation();
     };

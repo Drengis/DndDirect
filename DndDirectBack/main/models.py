@@ -77,6 +77,12 @@ class Сharacters(models.Model):
     worldview = models.TextField()
     history = models.TextField()
     experience = models.IntegerField()
+    str = models.IntegerField()
+    dex = models.IntegerField()
+    con = models.IntegerField()
+    int = models.IntegerField()
+    wis = models.IntegerField()
+    chr = models.IntegerField()
     
 
     class Meta:
