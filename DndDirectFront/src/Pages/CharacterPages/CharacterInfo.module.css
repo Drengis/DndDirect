@@ -58,6 +58,54 @@ h1 {
 
 .Left {
     display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.Сharacteristics {
+    display: flex;
     flex-direction: column;
     justify-content: start;
+}
+
+.InspPossesConteiner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 15px;
+    font-size: 25px;
+    padding: 5px;
+    width: 300px;
+}
+
+.Inspiration {
+    display: flex;
+    justify-content: center;
+}
+
+.InspirationTitle {
+    margin-left: 10px;
+
+}
+
+.Possession {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.PossessionTitle {
+    margin-left: 10px;
+    font-size: 25px;
+
+}
+
+.PossessionValue {
+    display: flex;
+    align-items: center;
+    font-size: 35px;
+    border: 1px solid aliceblue;
+    border-radius: 20%;
+    padding: 2%;
+    height: 60px;
 }

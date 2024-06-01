@@ -71,7 +71,7 @@ class Spells(models.Model):
         
 class Сharacters(models.Model):
     name = models.TextField()
-    сharclass = models.TextField(db_column='class')
+    charclass = models.TextField(db_column='class')
     race = models.TextField()
     level = models.IntegerField()
     worldview = models.TextField()
@@ -83,6 +83,7 @@ class Сharacters(models.Model):
     int = models.IntegerField()
     wis = models.IntegerField()
     chr = models.IntegerField()
+    possessionValue = models.IntegerField(db_column='possessionvalue')
     
 
     class Meta:

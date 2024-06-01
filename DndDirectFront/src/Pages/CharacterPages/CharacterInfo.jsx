@@ -1,5 +1,4 @@
-import React, { useState, useEffect, } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterInfo.module.css'
 import Header from '../../Components/Header';
@@ -7,35 +6,13 @@ import CharSideBar from '../../Components/CharSideBar'
 import LogininStore from '../../cms/LogininStore'
 import Сharacteristic from '../../Components/CharComp/Сharacteristic'
 import Button from '../../Components/Button';
-
+import charQuery from '../../requests/Char.api'
+import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
+import CharacteristicStore from '../../cms/CharacteristicStore';
 
 const CharacterInfo = observer(() => {
-    const { id } = useParams();
-    const [CharactersData, setCharactersData] = useState([]);
-    const [UnauthMessage, setUnauthMessage] = useState()
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch(`http://127.0.0.1:8000/characters/get/${id}`, {
-                    headers: {
-                        'Authorization': `Bearer ${LogininStore.token}`
-                    }
-                });
-                const data = await response.json();
-                setCharactersData(data);
-            } catch (error) {
-                console.error('Ошибка при получении данных персонажей:', error);
-            }
-        };
-
-        if (LogininStore.isAuth === true) {
-            fetchData();
-        } else {
-            setUnauthMessage('Вы не авторизованы');
-        }
-    }, [LogininStore.isAuth]);
-
+    charQuery();
+    const UnauthMessage = 'Вы не авторизованы'
 
     return (
         <>
@@ -49,20 +26,20 @@ const CharacterInfo = observer(() => {
                         <div className={styles.CharConteiner}>
                             <div className={styles.TopInfo}>
                                 <div className={styles.CharName}>
-                                    <h1> {CharactersData.name} </h1>
+                                    <h1> {BaseCharInfoStore.name} </h1>
                                 </div>
                                 <div className={styles.BaseInfo}>
                                     <div className={styles.InfoConteiner}>
-                                        <h2> Раса: {CharactersData.race} </h2>
-                                        <h2> Класс: {CharactersData.сharclass}</h2>
+                                        <h2> Раса: {BaseCharInfoStore.race} </h2>
+                                        <h2> Класс: {BaseCharInfoStore.charclass}</h2>
                                     </div>
                                     <div className={styles.InfoConteiner}>
-                                        <h2> Предыстория: {CharactersData.history}</h2>
-                                        <h2> Мировозрение: {CharactersData.worldview}</h2>
+                                        <h2> Предыстория: {BaseCharInfoStore.history}</h2>
+                                        <h2> Мировозрение: {BaseCharInfoStore.worldview}</h2>
                                     </div>
                                     <div className={styles.InfoConteiner}>
-                                        <h2> Уровень: {CharactersData.level}</h2>
-                                        <h2> Опыт: {CharactersData.experience}</h2>
+                                        <h2> Уровень: {BaseCharInfoStore.level}</h2>
+                                        <h2> Опыт: {BaseCharInfoStore.experience}</h2>
                                     </div>
                                 </div>
                                 <div className={styles.ChangeButton}>
@@ -72,12 +49,26 @@ const CharacterInfo = observer(() => {
 
                             <div className={styles.ButtomInfo}>
                                 <div className={styles.Left}>
-                                    <Сharacteristic head="Сила" number={CharactersData.str} />
-                                    <Сharacteristic head="Ловкость" number={CharactersData.dex} />
-                                    <Сharacteristic head="Телосложение" number={CharactersData.con} />
-                                    <Сharacteristic head="Интеллект" number={CharactersData.int} />
-                                    <Сharacteristic head="Мудрость" number={CharactersData.wis} />
-                                    <Сharacteristic head="Харизма" number={CharactersData.chr} />
+                                    <div className={styles.Сharacteristics}>
+                                        <Сharacteristic head="Сила" number={CharacteristicStore.str} />
+                                        <Сharacteristic head="Ловкость" number={CharacteristicStore.dex} />
+                                        <Сharacteristic head="Телосложение" number={CharacteristicStore.con} />
+                                        <Сharacteristic head="Интеллект" number={CharacteristicStore.int} />
+                                        <Сharacteristic head="Мудрость" number={CharacteristicStore.wis} />
+                                        <Сharacteristic head="Харизма" number={CharacteristicStore.chr} />
+                                    </div>
+                                    <div className={styles.Skills}>
+                                        <div className={styles.InspPossesConteiner}>
+                                            <div className={styles.Inspiration}>
+                                                <input className={`${styles.InspirationCheck} form-check-input`} type="checkbox" value="" id="flexCheckDefault" />
+                                                <label className={styles.InspirationTitle}> Вдохновение </label>
+                                            </div>
+                                            <div className={styles.Possession}>
+                                                <label className={styles.PossessionValue}> +{CharacteristicStore.possessionValue} </label>
+                                                <label className={styles.PossessionTitle}> Навык владения </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className={styles.Middle}>
                                     MID

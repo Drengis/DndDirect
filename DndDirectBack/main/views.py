@@ -43,7 +43,7 @@ class SpellsViewGet(APIView):
         return Response(serializer.data)       
 
 class CharactersViewSet(ViewSet):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
     
     def all(self, request):
         char = Сharacters.objects.all()
