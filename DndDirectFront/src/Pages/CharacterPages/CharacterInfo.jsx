@@ -9,6 +9,8 @@ import Button from '../../Components/Button';
 import charQuery from '../../requests/Char.api'
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
 import CharacteristicStore from '../../cms/CharacteristicStore';
+import CharChangerModal from '../../cms/CharChangerStore';
+import CharChanger from '../../Components/CharactersChanger/CharChanger';
 
 const CharacterInfo = observer(() => {
     charQuery();
@@ -43,7 +45,7 @@ const CharacterInfo = observer(() => {
                                     </div>
                                 </div>
                                 <div className={styles.ChangeButton}>
-                                    <Button name='Изменить' />
+                                    <Button name='Изменить' onclick={CharChangerModal.open} />
                                 </div>
                             </div>
 
@@ -77,7 +79,9 @@ const CharacterInfo = observer(() => {
                                     RIGHT
                                 </div>
                             </div>
+                            {CharChangerModal.visible && <CharChanger />}
                         </div>
+
                     ) : (
                         <div>
                             <h1> {UnauthMessage} </h1>
