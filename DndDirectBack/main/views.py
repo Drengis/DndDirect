@@ -57,3 +57,15 @@ class CharactersViewSet(ViewSet):
             return Response(serializer.data)
         except Сharacters.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    def update(self, request):
+        character_id = request.data.get('id')
+        try:
+            character = Сharacters.objects.get(id=character_id)
+            serializer = СharactersSerializer(character, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except Сharacters.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

@@ -2,6 +2,7 @@ import { makeAutoObservable, observable, action } from 'mobx';
 
 
 class BaseInfoStore {
+    id = ''
     name = ''
     charclass = ''
     race = ''
@@ -12,6 +13,7 @@ class BaseInfoStore {
 
     constructor() {
         makeAutoObservable(this, {
+            id: observable,
             name: observable,
             charclass: observable,
             race: observable,
@@ -22,11 +24,15 @@ class BaseInfoStore {
         });
     }
 
+    setID = action((id) => {
+        this.id = id;
+    });
+
     setName = action((name) => {
         this.name = name;
     });
 
-    setClass = action((charclass) => {
+    setСharСlass = action((charclass) => {
         this.charclass = charclass;
     });
 
@@ -50,7 +56,8 @@ class BaseInfoStore {
         this.experience = experience;
     });
 
-    setBaseInfo = action((name, charclass, race, history, worldview, level, experience) => {
+    setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience) => {
+        this.id = id;
         this.name = name;
         this.charclass = charclass;
         this.race = race;

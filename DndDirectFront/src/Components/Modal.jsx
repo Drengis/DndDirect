@@ -17,7 +17,7 @@ function Modal(props) {
 
     return (
         <div className={`${styles.Modal} modal`} tabIndex={-1} onClick={handleClickOutside}>
-            <div className={`${styles.ModalDialog} modal-dialog`} ref={modalRef} onClick={handleModalClick}>
+            <div className={`${styles.ModalDialog} modal-dialog modal-dialog-centered ${props.setting}`} ref={modalRef} onClick={handleModalClick}>
                 <div className={`${styles.ModalContent} modal-content`}>
                     <div className={`${styles.ModalHeader} modal-header`}>
                         <h5 className="modal-title">{props.title}</h5>

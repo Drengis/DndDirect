@@ -26,6 +26,7 @@ urlpatterns = [
     
     path('characters/get/all', views.CharactersViewSet.as_view({'get': 'all'})),
     path('characters/get/<int:id>', views.CharactersViewSet.as_view({'get': 'specific'})),
+    path('characters/update', views.CharactersViewSet.as_view({'post': 'update'})),
     
 
     

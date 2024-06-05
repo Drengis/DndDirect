@@ -14,7 +14,7 @@ const charQuery = async () => {
         const CharacterData = await response.json();
         CharacteristicStore.setCharecteristic(CharacterData.str, CharacterData.dex, CharacterData.con,
             CharacterData.int, CharacterData.wis, CharacterData.chr, CharacterData.possessionValue)
-        BaseCharInfoStore.setBaseInfo(CharacterData.name, CharacterData.charclass, CharacterData.race,
+        BaseCharInfoStore.setBaseInfo(CharacterData.id, CharacterData.name, CharacterData.charclass, CharacterData.race,
             CharacterData.history, CharacterData.worldview, CharacterData.level, CharacterData.experience)
 
     } catch (error) {

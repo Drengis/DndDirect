@@ -24,6 +24,7 @@ const CharactersList = observer(() => {
                 });
                 const data = await response.json();
                 setCharactersData(data);
+                console.log(CharactersData)
             } catch (error) {
                 console.error('Ошибка при получении данных персонажей:', error);
             }
@@ -63,7 +64,7 @@ const CharactersList = observer(() => {
                             Array.isArray(CharactersData) && CharactersData.map(character => (
                                 <div className={styles.Charecter} key={character.id}>
                                     <h2>{character.name}</h2>
-                                    <p>Класс: {character.сharclass}</p>
+                                    <p>Класс: {character.charclass}</p>
                                     <p>Раса: {character.race}</p>
                                     <p>Ур: {character.level}</p>
                                     <Link to={`/character/info/${character.id}/`}> <Button name='Персонажи' /> </Link>
