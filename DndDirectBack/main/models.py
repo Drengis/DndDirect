@@ -29,7 +29,7 @@ class LightArmors(models.Model):
     stealth = models.CharField(max_length=64)
 
     class Meta:
-        db_table = 'lightarmor'
+        db_table = 'light_armor'
 
 
 class MediumArmors(models.Model):
@@ -40,7 +40,7 @@ class MediumArmors(models.Model):
     stealth = models.CharField(max_length=64)
 
     class Meta:
-        db_table = 'mediumarmor'
+        db_table = 'medium_armor'
 
 
 class HeavyArmors(models.Model):
@@ -51,7 +51,7 @@ class HeavyArmors(models.Model):
     stealth = models.CharField(max_length=64)
 
     class Meta:
-        db_table = 'heavyarmor'
+        db_table = 'heavy_armor'
 
 
 class Spells(models.Model):
@@ -64,14 +64,14 @@ class Spells(models.Model):
     components = models.TextField()
     duration = models.TextField()
     text = models.TextField()
-    ritual = models.TextField()
+    ritual = models.BooleanField()
 
     class Meta:
         db_table = 'spells'
         
 class Сharacters(models.Model):
     name = models.TextField()
-    charclass = models.TextField(db_column='class')
+    charclass = models.TextField()
     race = models.TextField()
     level = models.IntegerField()
     worldview = models.TextField()
@@ -83,7 +83,7 @@ class Сharacters(models.Model):
     int = models.IntegerField()
     wis = models.IntegerField()
     chr = models.IntegerField()
-    possessionValue = models.IntegerField(db_column='possessionvalue')
+    possessionValue = models.IntegerField(db_column='possession_value')
     
 
     class Meta:

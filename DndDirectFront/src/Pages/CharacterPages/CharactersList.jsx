@@ -24,7 +24,6 @@ const CharactersList = observer(() => {
                 });
                 const data = await response.json();
                 setCharactersData(data);
-                console.log(CharactersData)
             } catch (error) {
                 console.error('Ошибка при получении данных персонажей:', error);
             }

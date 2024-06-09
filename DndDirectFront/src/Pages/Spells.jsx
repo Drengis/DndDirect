@@ -70,7 +70,7 @@ function Spells() {
                                 </div>
                                 <div className={styles.selectedSpellInfo2}>
                                     <p>Время применения: {selectedSpell.castingtime}</p>
-                                    <p>Ритуал: {selectedSpell.ritual === 'No' ? '-' : '+'}</p>
+                                    <p>Ритуал: {selectedSpell.ritual === true ? '+' : '-'}</p>
                                     <p>Компаненты: {selectedSpell.components}</p>
                                     <p>Материалы: {selectedSpell.materials.replace(/^\(|\)$/g, '')}</p>
                                 </div>
