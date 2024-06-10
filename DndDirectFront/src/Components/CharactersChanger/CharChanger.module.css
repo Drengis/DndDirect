@@ -13,6 +13,22 @@
     padding: 7%;
 }
 
+.BodyConteiner {
+    display: flex;
+    flex-direction: row;
+}
+
+.BaseInfoConteiner {
+    margin-right: 7px;
+}
+
+.CharacteristicConteiner {
+    margin-left: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 span {
     width: 130px;
 }

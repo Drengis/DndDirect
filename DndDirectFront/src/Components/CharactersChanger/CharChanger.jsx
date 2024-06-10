@@ -9,6 +9,7 @@ import Input from '../Input';
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
 import CharacteristicStore from '../../cms/CharacteristicStore';
 import LogininStore from '../../cms/LogininStore';
+import AlertStore from '../../cms/AlertStore';
 
 const CharChanger = observer(() => {
     const fieldInfo = {
@@ -42,10 +43,38 @@ const CharChanger = observer(() => {
         }
     };
 
-    const [fieldValues, setFieldValues] = useState(fieldInfo);
+    const characteristicInfo = {
+        str: {
+            label: 'Сила',
+            value: CharacteristicStore.str
+        },
+        dex: {
+            label: 'Ловкость',
+            value: CharacteristicStore.dex
+        },
+        con: {
+            label: 'Телосложение',
+            value: CharacteristicStore.con
+        },
+        int: {
+            label: 'Интеллект',
+            value: CharacteristicStore.int
+        },
+        wis: {
+            label: 'Мудрость',
+            value: CharacteristicStore.wis
+        },
+        chr: {
+            label: 'Харизма',
+            value: CharacteristicStore.chr
+        }
+    };
+
+    const [fieldValues, setFieldValues] = useState({ ...fieldInfo, ...characteristicInfo });
 
     const handleInputChange = (field, value) => {
         setFieldValues(prevValues => ({
+
             ...prevValues,
             [field]: {
                 ...prevValues[field],
@@ -63,32 +92,48 @@ const CharChanger = observer(() => {
                 ),
             };
 
+            console.log(updatedFields)
+
             await axios.post('http://127.0.0.1:8000/characters/update', updatedFields, {
                 headers: {
                     'Authorization': `Bearer ${LogininStore.token}`,
                 },
             });
 
-            console.log('Данные успешно сохранены');
+            AlertStore.AddSuccessAlert('Данные успешно сохранены');
             CharChangerModal.close();
 
         } catch (error) {
-            console.error('Ошибка при сохранении данных:', error);
+            AlertStore.AddErrorAlert('Ошибка сохранения');
         }
     };
 
     const Body = (
-        <div>
-            {Object.entries(fieldValues).map(([field, { label, value }]) => (
-                <div key={field}>
-                    <Input
-                        span={label}
-                        defaultValue={value}
-                        onchange={(e) => handleInputChange(field, e.target.value)}
-                    />
-                </div>
-            ))}
+        <div className={styles.BodyConteiner}>
+            <div className={styles.BaseInfoConteiner}>
+                {Object.entries(fieldInfo).map(([field, { label, value }]) => (
+                    <div key={field}>
+                        <Input
+                            span={label}
+                            defaultValue={value}
+                            onchange={(e) => handleInputChange(field, e.target.value)}
+                        />
+                    </div>
+                ))}
+            </div>
+            <div className={styles.CharacteristicConteiner}>
+                {Object.entries(characteristicInfo).map(([field, { label, value }]) => (
+                    <div key={field}>
+                        <Input
+                            span={label}
+                            defaultValue={value}
+                            onchange={(e) => handleInputChange(field, e.target.value)}
+                        />
+                    </div>
+                ))}
+            </div>
         </div>
+
     );
 
     const Footer = (
