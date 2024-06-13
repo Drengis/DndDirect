@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Weapons.module.css'
-import Header from '../Components/Header';
+import Header from '../../Components/MainComponents/Header';
 
 
 function Weapons() {

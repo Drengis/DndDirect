@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from "./Header.module.css";
-import Button from '../Components/Button';
+import Button from '../MainComponents/Button';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
-import RegistrationModal from '../cms/RegStore';
-import AuthorizationModal from '../cms/AuthStore';
-import Registration from '../Components/Registr.Auth/Registration';
-import Authorization from '../Components/Registr.Auth/Authorization';
-import AlertBox from './AlertBox/AlertBox';
-import LogininStore from '../cms/LogininStore';
+import RegistrationModal from '../../cms/RegStore';
+import AuthorizationModal from '../../cms/AuthStore';
+import Registration from '../Registr.Auth/Registration';
+import Authorization from '../Registr.Auth/Authorization';
+import AlertBox from '../AlertBox/AlertBox';
+import LogininStore from '../../cms/LogininStore';
 
 const Header = observer(() => {
 

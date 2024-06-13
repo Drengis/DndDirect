@@ -1,8 +1,8 @@
 import React, { useState, useEffect, } from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterSpells.module.css'
-import Header from '../../Components/Header';
-import CharSideBar from '../../Components/CharSideBar'
+import Header from '../../Components/MainComponents/Header';
+import CharSideBar from '../../Components/MainComponents/CharSideBar'
 import LogininStore from '../../cms/LogininStore'
 
 

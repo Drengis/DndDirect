@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Registration.module.css';
-import Modal from '../Modal';
+import Modal from '../MainComponents/Modal';
+import Button from '../MainComponents/Button';
 import RegistrationModal from '../../cms/RegStore';
 import { observer } from 'mobx-react-lite';
-import Button from '../Button';
 import { registration } from '../../requests/Auth.api'
 
 const Registration = observer(() => {

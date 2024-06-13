@@ -7,10 +7,10 @@ import {
   RouterProvider,
   BrowserRouter, Routes, Route,
 } from "react-router-dom";
-import HomePage from './Pages/HomePage.jsx'
-import Armors from './Pages/Armors.jsx'
-import Weapons from './Pages/Weapons.jsx'
-import Spells from './Pages/Spells.jsx'
+import HomePage from './Pages/OtherPages/HomePage.jsx'
+import Armors from './Pages/OtherPages/Armors.jsx'
+import Weapons from './Pages/OtherPages/Weapons.jsx'
+import Spells from './Pages/OtherPages/Spells.jsx'
 import CharactersList from './Pages/CharacterPages/CharactersList.jsx'
 import CharacterInfo from './Pages/CharacterPages/CharacterInfo.jsx';
 import CharacterSpells from './Pages/CharacterPages/CharacterSpells.jsx';

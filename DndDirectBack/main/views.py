@@ -69,3 +69,13 @@ class CharactersViewSet(ViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Сharacters.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
+class CharactersSkillsViewSet(ViewSet):
+
+    def getskills(self, request, id):
+        try:
+            character_skills = CharactersSkills.objects.filter(characters_id=id)
+            serializer = CharactersSkillsSerializer(character_skills, many=True)
+            return Response(serializer.data)
+        except CharactersSkills.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

@@ -8,6 +8,12 @@ class CharecteristicStore {
     wis = ''
     chr = ''
     possessionValue = ''
+    savestr = ''
+    savedex = ''
+    savecon = ''
+    saveint = ''
+    savewis = ''
+    savechr = ''
 
     constructor() {
         makeAutoObservable(this, {
@@ -18,38 +24,17 @@ class CharecteristicStore {
             wis: observable,
             chr: observable,
             possessionValue: observable,
+            savestr: observable,
+            savedex: observable,
+            savecon: observable,
+            saveint: observable,
+            savewis: observable,
+            savechr: observable,
         });
     }
 
-    setSTR = action((str) => {
-        this.str = str;
-    });
-
-    setDEX = action((dex) => {
-        this.dex = dex;
-    });
-
-    setCON = action((con) => {
-        this.con = con;
-    });
-
-    setINT = action((int) => {
-        this.int = int;
-    });
-
-    setWIS = action((wis) => {
-        this.wis = wis;
-    });
-
-    setCHR = action((chr) => {
-        this.chr = chr;
-    });
-
-    setPossessionValue = action((possessionValue) => {
-        this.possessionValue = possessionValue;
-    });
-
-    setCharecteristic = action((str, dex, con, int, wis, chr, possessionValue) => {
+    setCharecteristic = action((str, dex, con, int, wis, chr, possessionValue, savestr,
+        savedex, savecon, saveint, savewis, savechr,) => {
         this.str = str;
         this.dex = dex;
         this.con = con;
@@ -57,6 +42,12 @@ class CharecteristicStore {
         this.wis = wis;
         this.chr = chr;
         this.possessionValue = possessionValue;
+        this.savestr = savestr;
+        this.savedex = savedex;
+        this.savecon = savecon;
+        this.saveint = saveint;
+        this.savewis = savewis;
+        this.savechr = savechr;
     });
 
 }

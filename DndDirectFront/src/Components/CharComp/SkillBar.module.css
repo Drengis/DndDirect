@@ -1,0 +1,21 @@
+.SkillConteiner {
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    justify-content: center;
+}
+
+.SkillValue {
+    font-size: 20px;
+    text-decoration: underline;
+    margin-right: 10px;
+    width: 30%;
+}
+
+.SkillName {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+}

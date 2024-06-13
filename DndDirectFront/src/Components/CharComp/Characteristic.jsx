@@ -1,8 +1,6 @@
 import React from 'react';
 import styles from "./Characteristic.module.css"
 
-
-
 function Characteristic(props) {
     const modifier = Math.ceil((props.number - 10) / 2);
     const value = modifier >= 0 ? `+${modifier}` : `${modifier}`;

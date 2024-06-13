@@ -29,7 +29,7 @@ class LightArmors(models.Model):
     stealth = models.CharField(max_length=64)
 
     class Meta:
-        db_table = 'light_armor'
+        db_table = 'light_armors'
 
 
 class MediumArmors(models.Model):
@@ -88,3 +88,15 @@ class Сharacters(models.Model):
 
     class Meta:
         db_table = 'characters'
+        
+class CharactersSkills(models.Model):
+    characters_id = models.IntegerField()
+    savestr = models.IntegerField()
+    savedex = models.IntegerField()
+    savecon = models.IntegerField()
+    saveint = models.IntegerField()
+    savewis = models.IntegerField()
+    savechr = models.IntegerField()
+
+    class Meta:
+        db_table = 'charskills'

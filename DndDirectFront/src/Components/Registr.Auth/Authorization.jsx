@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Authorization.module.css';
-import Modal from '../Modal';
-import Button from '../Button';
+import Modal from '../MainComponents/Modal';
+import Button from '../MainComponents/Button';
 import AuthorizationModal from '../../cms/AuthStore';
 import { observer } from 'mobx-react-lite';
 import { authorization } from '../../requests/Auth.api'

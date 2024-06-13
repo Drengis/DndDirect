@@ -24,37 +24,6 @@ class BaseInfoStore {
         });
     }
 
-    setID = action((id) => {
-        this.id = id;
-    });
-
-    setName = action((name) => {
-        this.name = name;
-    });
-
-    setСharСlass = action((charclass) => {
-        this.charclass = charclass;
-    });
-
-    setRace = action((race) => {
-        this.race = race;
-    });
-
-    setHistory = action((history) => {
-        this.history = history;
-    });
-
-    setWorldview = action((worldview) => {
-        this.worldview = worldview;
-    });
-
-    setLevel = action((level) => {
-        this.level = level;
-    });
-
-    setExperience = action((experience) => {
-        this.experience = experience;
-    });
 
     setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience) => {
         this.id = id;

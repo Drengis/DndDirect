@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Armors.module.css'
-import Header from '../Components/Header';
+import Header from '../../Components/MainComponents/Header';
 
 function Armors() {
     const [LightArmorsData, setLightArmorsData] = useState([]);

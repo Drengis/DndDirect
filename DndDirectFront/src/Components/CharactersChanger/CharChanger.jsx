@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styles from './CharChanger.module.css';
 import axios from 'axios';
-import Modal from '../Modal';
+import Modal from '../MainComponents/Modal';
 import CharChangerModal from '../../cms/CharChangerStore';
 import { observer } from 'mobx-react-lite';
-import Button from '../Button';
-import Input from '../Input';
+import Button from '../MainComponents/Button';
+import Input from '../MainComponents/Input';
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
 import CharacteristicStore from '../../cms/CharacteristicStore';
 import LogininStore from '../../cms/LogininStore';
@@ -41,6 +41,7 @@ const CharChanger = observer(() => {
             label: 'Опыт',
             value: BaseCharInfoStore.experience
         }
+
     };
 
     const characteristicInfo = {
@@ -67,7 +68,11 @@ const CharChanger = observer(() => {
         chr: {
             label: 'Харизма',
             value: CharacteristicStore.chr
-        }
+        },
+        possessionValue: {
+            label: 'Владение',
+            value: CharacteristicStore.possessionValue
+        },
     };
 
     const [fieldValues, setFieldValues] = useState({ ...fieldInfo, ...characteristicInfo });

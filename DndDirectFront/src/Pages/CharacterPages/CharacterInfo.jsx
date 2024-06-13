@@ -1,16 +1,17 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterInfo.module.css'
-import Header from '../../Components/Header';
-import CharSideBar from '../../Components/CharSideBar'
+import Header from '../../Components/MainComponents/Header';
+import CharSideBar from '../../Components/MainComponents/CharSideBar'
 import LogininStore from '../../cms/LogininStore'
-import Сharacteristic from '../../Components/CharComp/Сharacteristic'
-import Button from '../../Components/Button';
+import Characteristic from '../../Components/CharComp/Characteristic'
+import Button from '../../Components/MainComponents/Button';
 import charQuery from '../../requests/Char.api'
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
 import CharacteristicStore from '../../cms/CharacteristicStore';
 import CharChangerModal from '../../cms/CharChangerStore';
 import CharChanger from '../../Components/CharactersChanger/CharChanger';
+import SkillBar from '../../Components/CharComp/SkillBar';
 
 const CharacterInfo = observer(() => {
     charQuery();
@@ -51,13 +52,13 @@ const CharacterInfo = observer(() => {
 
                             <div className={styles.ButtomInfo}>
                                 <div className={styles.Left}>
-                                    <div className={styles.Сharacteristics}>
-                                        <Сharacteristic head="Сила" number={CharacteristicStore.str} />
-                                        <Сharacteristic head="Ловкость" number={CharacteristicStore.dex} />
-                                        <Сharacteristic head="Телосложение" number={CharacteristicStore.con} />
-                                        <Сharacteristic head="Интеллект" number={CharacteristicStore.int} />
-                                        <Сharacteristic head="Мудрость" number={CharacteristicStore.wis} />
-                                        <Сharacteristic head="Харизма" number={CharacteristicStore.chr} />
+                                    <div className={styles.Characteristics}>
+                                        <Characteristic head="Сила" number={CharacteristicStore.str} />
+                                        <Characteristic head="Ловкость" number={CharacteristicStore.dex} />
+                                        <Characteristic head="Телосложение" number={CharacteristicStore.con} />
+                                        <Characteristic head="Интеллект" number={CharacteristicStore.int} />
+                                        <Characteristic head="Мудрость" number={CharacteristicStore.wis} />
+                                        <Characteristic head="Харизма" number={CharacteristicStore.chr} />
                                     </div>
                                     <div className={styles.Skills}>
                                         <div className={styles.InspPossesConteiner}>
@@ -68,6 +69,17 @@ const CharacterInfo = observer(() => {
                                             <div className={styles.Possession}>
                                                 <label className={styles.PossessionValue}> +{CharacteristicStore.possessionValue} </label>
                                                 <label className={styles.PossessionTitle}> Навык владения </label>
+                                            </div>
+                                        </div>
+                                        <div className={styles.SkillsConteiner}>
+                                            <div className={styles.SaveSkills}>
+                                                <label className={styles.SaveSkillsTitle}> Спасброски </label>
+                                                <SkillBar name='Сила' value={CharacteristicStore.str} skillpoint={CharacteristicStore.savestr} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Ловкость' value={CharacteristicStore.dex} skillpoint={CharacteristicStore.savedex} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Телосложение' value={CharacteristicStore.con} skillpoint={CharacteristicStore.savecon} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Интеллект' value={CharacteristicStore.int} skillpoint={CharacteristicStore.saveint} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Мудрость' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.savewis} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Харизма' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.savechr} posValue={CharacteristicStore.possessionValue} />
                                             </div>
                                         </div>
                                     </div>

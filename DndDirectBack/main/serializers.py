@@ -41,3 +41,9 @@ class UsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password']
+        
+class CharactersSkillsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CharactersSkills
+        fields = '__all__'
+        

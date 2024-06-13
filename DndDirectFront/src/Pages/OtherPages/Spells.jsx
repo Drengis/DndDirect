@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Spells.module.css';
-import Header from '../Components/Header';
-import SpellButton from '../Components/SpellButton';
+import Header from '../../Components/MainComponents/Header';
+import SpellButton from '../../Components/MainComponents/SpellButton';
 
 function Spells() {
     const [spellsData, setSpellsData] = useState([]);

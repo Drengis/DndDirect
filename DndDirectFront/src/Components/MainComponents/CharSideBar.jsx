@@ -1,16 +1,16 @@
 import styles from "./CharSideBar.module.css"
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom';
-import NotesIcon from '../Components/Icons/Notes.png'
-import CharIcon from '../Components/Icons/Сhar.png'
-import SpellsIcon from '../Components/Icons/Spells.png'
-import AppearanceIcon from '../Components/Icons/Appearance.png'
-import PossessionsIcon from '../Components/Icons/Possessions.png'
-import HistoryIcon from '../Components/Icons/History.png'
-import CreateIcon from '../Components/Icons/Create.png'
-import SaveIcon from '../Components/Icons/Save.png'
-import LoadIcon from '../Components/Icons/Load.png'
-import DownloadIcon from '../Components/Icons/Download.png'
+import NotesIcon from '../Icons/Notes.png'
+import CharIcon from '../Icons/Сhar.png'
+import SpellsIcon from '../Icons/Spells.png'
+import AppearanceIcon from '../Icons/Appearance.png'
+import PossessionsIcon from '../Icons/Possessions.png'
+import HistoryIcon from '../Icons/History.png'
+import CreateIcon from '../Icons/Create.png'
+import SaveIcon from '../Icons/Save.png'
+import LoadIcon from '../Icons/Load.png'
+import DownloadIcon from '../Icons/Download.png'
 
 
 function CharSideBar() {
