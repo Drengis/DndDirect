@@ -22,13 +22,19 @@ const charQuery = async () => {
         if (CharacterResponse.ok && SkillsResponse.ok) {
             const CharacterData = await CharacterResponse.json();
             const CharacterSkillsData = await SkillsResponse.json();
-
+            console.log(CharacterSkillsData)
 
             CharacteristicStore.setCharecteristic(
                 CharacterData.str, CharacterData.dex, CharacterData.con,
                 CharacterData.int, CharacterData.wis, CharacterData.chr, CharacterData.possessionValue, CharacterSkillsData[0].savestr,
                 CharacterSkillsData[0].savedex, CharacterSkillsData[0].savecon, CharacterSkillsData[0].saveint,
-                CharacterSkillsData[0].savewis, CharacterSkillsData[0].savechr,
+                CharacterSkillsData[0].savewis, CharacterSkillsData[0].savechr, CharacterSkillsData[0].acrobatics,
+                CharacterSkillsData[0].analysis, CharacterSkillsData[0].athletics, CharacterSkillsData[0].perception,
+                CharacterSkillsData[0].survival, CharacterSkillsData[0].performance, CharacterSkillsData[0].intimidation,
+                CharacterSkillsData[0].history, CharacterSkillsData[0].hand, CharacterSkillsData[0].magic,
+                CharacterSkillsData[0].medicine, CharacterSkillsData[0].deception, CharacterSkillsData[0].nature,
+                CharacterSkillsData[0].insight, CharacterSkillsData[0].religion, CharacterSkillsData[0].stealth,
+                CharacterSkillsData[0].persuasion, CharacterSkillsData[0].animals,
             );
 
             BaseCharInfoStore.setBaseInfo(

@@ -14,6 +14,24 @@ class CharecteristicStore {
     saveint = ''
     savewis = ''
     savechr = ''
+    acrobatics
+    analysis = ''
+    athletics = ''
+    perception = ''
+    survival = ''
+    performance = ''
+    intimidation = ''
+    history = ''
+    hand = ''
+    magic = ''
+    medicine = ''
+    deception = ''
+    nature = ''
+    insight = ''
+    religion = ''
+    stealth = ''
+    persuasion = ''
+    animals = ''
 
     constructor() {
         makeAutoObservable(this, {
@@ -30,11 +48,31 @@ class CharecteristicStore {
             saveint: observable,
             savewis: observable,
             savechr: observable,
+            acrobatics: observable,
+            analysis: observable,
+            athletics: observable,
+            perception: observable,
+            survival: observable,
+            performance: observable,
+            intimidation: observable,
+            history: observable,
+            hand: observable,
+            magic: observable,
+            medicine: observable,
+            deception: observable,
+            nature: observable,
+            insight: observable,
+            religion: observable,
+            stealth: observable,
+            persuasion: observable,
+            animals: observable,
         });
     }
 
     setCharecteristic = action((str, dex, con, int, wis, chr, possessionValue, savestr,
-        savedex, savecon, saveint, savewis, savechr,) => {
+        savedex, savecon, saveint, savewis, savechr, acrobatics, analysis, athletics, perception, survival,
+        performance, intimidation, history, hand, magic, medicine, deception, nature, insight,
+        religion, stealth, persuasion, animals,) => {
         this.str = str;
         this.dex = dex;
         this.con = con;
@@ -48,6 +86,24 @@ class CharecteristicStore {
         this.saveint = saveint;
         this.savewis = savewis;
         this.savechr = savechr;
+        this.acrobatics = acrobatics;
+        this.analysis = analysis;
+        this.athletics = athletics;
+        this.perception = perception;
+        this.survival = survival;
+        this.performance = performance;
+        this.intimidation = intimidation;
+        this.history = history;
+        this.hand = hand;
+        this.magic = magic;
+        this.medicine = medicine;
+        this.deception = deception;
+        this.nature = nature;
+        this.insight = insight;
+        this.religion = religion;
+        this.stealth = stealth;
+        this.persuasion = persuasion;
+        this.animals = animals;
     });
 
 }

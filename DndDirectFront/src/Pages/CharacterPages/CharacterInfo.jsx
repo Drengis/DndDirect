@@ -81,6 +81,28 @@ const CharacterInfo = observer(() => {
                                                 <SkillBar name='Мудрость' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.savewis} posValue={CharacteristicStore.possessionValue} />
                                                 <SkillBar name='Харизма' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.savechr} posValue={CharacteristicStore.possessionValue} />
                                             </div>
+                                            <div className={styles.SkillsRoll}>
+                                                <label className={styles.SkillsRollTitle}> Броски навыков </label>
+                                                <SkillBar name='Акробатика' value={CharacteristicStore.dex} skillpoint={CharacteristicStore.acrobatics} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Анализ' value={CharacteristicStore.int} skillpoint={CharacteristicStore.analysis} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Атлетика' value={CharacteristicStore.str} skillpoint={CharacteristicStore.athletics} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Восприятие' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.perception} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Выживание' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.survival} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Выступление' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.performance} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Запугивание' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.intimidation} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='История' value={CharacteristicStore.int} skillpoint={CharacteristicStore.history} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Ловкость рук' value={CharacteristicStore.dex} skillpoint={CharacteristicStore.hand} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Магия' value={CharacteristicStore.int} skillpoint={CharacteristicStore.magic} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Медицина' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.medicine} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Обман' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.deception} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Природа' value={CharacteristicStore.int} skillpoint={CharacteristicStore.nature} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Проницательность' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.insight} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Религия' value={CharacteristicStore.int} skillpoint={CharacteristicStore.religion} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Скрытность' value={CharacteristicStore.dex} skillpoint={CharacteristicStore.stealth} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Убеждение' value={CharacteristicStore.chr} skillpoint={CharacteristicStore.persuasion} posValue={CharacteristicStore.possessionValue} />
+                                                <SkillBar name='Уход за животными' value={CharacteristicStore.wis} skillpoint={CharacteristicStore.animals} posValue={CharacteristicStore.possessionValue} />
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

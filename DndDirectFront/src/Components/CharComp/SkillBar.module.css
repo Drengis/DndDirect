@@ -6,16 +6,16 @@
 }
 
 .SkillValue {
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: underline;
-    margin-right: 10px;
-    width: 30%;
+    width: 20%;
+
 }
 
 .SkillName {
-    font-size: 16px;
+    font-size: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
+    width: 80%;
 }
