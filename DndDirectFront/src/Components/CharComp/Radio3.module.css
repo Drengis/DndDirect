@@ -1,0 +1,18 @@
+.RadioConteiner {
+    display: flex;
+    flex-direction: row;
+}
+
+.ButtonConteiner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.RadioTitle {
+    width: 150px;
+}
+
+.ButtonConteiner {
+    width: 250px;
+}

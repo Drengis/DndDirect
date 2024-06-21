@@ -71,7 +71,8 @@ class CharactersViewSet(ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
         
 class CharactersSkillsViewSet(ViewSet):
-
+    permission_classes=[IsAuthenticated]
+    
     def getskills(self, request, id):
         try:
             character_skills = CharactersSkills.objects.filter(characters_id=id)
@@ -79,3 +80,16 @@ class CharactersSkillsViewSet(ViewSet):
             return Response(serializer.data)
         except CharactersSkills.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    def updateskills(self, request):
+        id = request.data.get('characters_id')
+        try:
+            character = CharactersSkills.objects.get(characters_id=id)
+            serializer = CharactersSkillsSerializer(character, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except CharactersSkills.DoesNotExist:
+            return Response("Персонаж не найден", status=status.HTTP_404_NOT_FOUND)
+        

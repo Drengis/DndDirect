@@ -30,6 +30,7 @@ const authorization = async (username, password) => {
         LogininStore.setPassword(responseData.user.password);
         LogininStore.setEmail(responseData.user.email);
         LogininStore.setToken(responseData.token);
+        console.log(LogininStore.token)
         AlertStore.AddSuccessAlert('Авторизация успешна')
         AuthStore.close()
 

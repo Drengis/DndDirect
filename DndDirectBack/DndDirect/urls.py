@@ -28,8 +28,6 @@ urlpatterns = [
     path('characters/get/<int:id>', views.CharactersViewSet.as_view({'get': 'specific'})),
     path('characters/update', views.CharactersViewSet.as_view({'post': 'update'})),
     path('charactersskills/get/<int:id>', views.CharactersSkillsViewSet.as_view({'get': 'getskills'})),
-    
-
-    
+    path('charactersskills/update', views.CharactersSkillsViewSet.as_view({'post': 'updateskills'})),
     
 ]

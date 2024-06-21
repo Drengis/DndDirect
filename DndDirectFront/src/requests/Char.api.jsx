@@ -22,7 +22,6 @@ const charQuery = async () => {
         if (CharacterResponse.ok && SkillsResponse.ok) {
             const CharacterData = await CharacterResponse.json();
             const CharacterSkillsData = await SkillsResponse.json();
-            console.log(CharacterSkillsData)
 
             CharacteristicStore.setCharecteristic(
                 CharacterData.str, CharacterData.dex, CharacterData.con,
