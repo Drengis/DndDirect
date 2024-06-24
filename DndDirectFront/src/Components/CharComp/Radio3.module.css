@@ -1,18 +1,22 @@
 .RadioConteiner {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.RadioTitle {
+    display: flex;
+    width: 15%;
+
+}
+
+h5 {
+    font-size: 15px;
 }
 
 .ButtonConteiner {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-}
-
-.RadioTitle {
-    width: 150px;
-}
-
-.ButtonConteiner {
-    width: 250px;
+    justify-content: space-evenly;
+    width: 85%;
 }

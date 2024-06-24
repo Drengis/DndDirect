@@ -3,13 +3,13 @@ import axios from 'axios';
 import styles from "./Radio3.module.css"
 import LogininStore from '../../cms/LogininStore'
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
+import AlertStore from '../../cms/AlertStore';
 
 function Radio3(props) {
-
-    const [selectedValue, setSelectedValue] = useState(null);
+    const [selectedValue, setSelectedValue] = useState(props.initialValue);
 
     const handleRadioChange = (e) => {
-        setSelectedValue(e.target.value);
+        setSelectedValue(Number(e.target.value));
         sendDataToBackend(e.target.value);
     };
 
@@ -18,18 +18,18 @@ function Radio3(props) {
             characters_id: BaseCharInfoStore.id,
             [props.name]: value
         }
-        console.log(query)
         try {
             await axios.post(`http://127.0.0.1:8000/charactersskills/update`, query, {
                 headers: {
                     'Authorization': `Bearer ${LogininStore.token}`,
                 },
             });
-            console.log(`Sent data to backend: ${props.name} = ${value}`);
+            AlertStore.AddInfoAlert('Успешно')
         } catch (error) {
-            console.error('Error sending data to backend:', error);
+            AlertStore.AddErrorAlert("Ошибка сохранения")
         };
     }
+
     return (
         <div className={styles.RadioConteiner}>
             <div className={styles.RadioTitle}>
@@ -43,10 +43,10 @@ function Radio3(props) {
                         name={props.name}
                         id="inlineRadio1"
                         value="0"
-                        checked={selectedValue === '0'}
+                        checked={selectedValue === 0}
                         onChange={handleRadioChange}
+
                     />
-                    <label className="form-check-label"> </label>
                 </div>
                 <div className={`${styles.RadioButton} "form-check-input"`}>
                     <input
@@ -55,10 +55,9 @@ function Radio3(props) {
                         name={props.name}
                         id="inlineRadio2"
                         value="1"
-                        checked={selectedValue === '1'}
+                        checked={selectedValue === 1}
                         onChange={handleRadioChange}
                     />
-                    <label className="form-check-label"> </label>
                 </div>
                 <div className={`${styles.RadioButton} "form-check-input"`}>
                     <input
@@ -67,10 +66,9 @@ function Radio3(props) {
                         name={props.name}
                         id="inlineRadio3"
                         value="2"
-                        checked={selectedValue === '2'}
+                        checked={selectedValue === 2}
                         onChange={handleRadioChange}
                     />
-                    <label className="form-check-label"> </label>
                 </div>
             </div>
         </div>
