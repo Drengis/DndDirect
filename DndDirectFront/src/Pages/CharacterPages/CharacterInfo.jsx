@@ -107,10 +107,38 @@ const CharacterInfo = observer(() => {
                                     </div>
                                 </div>
                                 <div className={styles.Middle}>
-                                    MID
+                                    <div className={styles.ArmorsInitSpeed}>
+                                        <div className={styles.ArmorClass}>
+                                            <label className={styles.StatsTitle}>КД</label>
+                                            <label className={styles.StatsValue}>{BaseCharInfoStore.armorclass}</label>
+                                        </div>
+                                        <div className={styles.Initiative}>
+                                            <label className={styles.StatsTitle}>Инициатива</label>
+                                            <label className={styles.StatsValue}>
+                                                +{BaseCharInfoStore.initiative + Math.ceil((CharacteristicStore.dex - 10) / 2)}
+                                            </label>
+                                        </div>
+                                        <div className={styles.Speed}>
+                                            <label className={styles.StatsTitle}>Скорость</label>
+                                            <label className={styles.StatsValue}>{BaseCharInfoStore.speed} фт.</label>
+                                        </div>
+                                    </div>
+                                    <div className={styles.HPConteiner}>
+                                        Здоровье
+                                    </div>
+                                    <div className={styles.InventoryCoins}>
+                                        <div className={styles.Inventory}>
+                                            Инвентарь
+                                        </div>
+                                        <div className={styles.CoinsConteiner}>
+                                            Монеты
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className={styles.Right}>
-                                    RIGHT
+                                    <div className={styles.Weapons}>
+                                        Оружие
+                                    </div>
                                 </div>
                             </div>
                             {CharChangerModal.visible && <CharChanger />}

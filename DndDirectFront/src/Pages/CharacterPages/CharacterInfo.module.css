@@ -27,7 +27,7 @@ h1 {
 .TopInfo {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     padding: 1%;
 }
@@ -57,10 +57,11 @@ h1 {
     padding-top: 0;
 }
 
+/* Левый контейнер */
+
 .Left {
     display: flex;
     flex-direction: row;
-    justify-content: start;
 }
 
 .Сharacteristics {
@@ -70,7 +71,7 @@ h1 {
 }
 
 .Skills {
-    margin-left: 15px;
+    margin-left: 50px;
 }
 
 .InspPossesConteiner {
@@ -79,7 +80,7 @@ h1 {
     flex-direction: column;
     font-size: 25px;
     padding: 5px;
-    width: 250px;
+    width: 230px;
     margin-bottom: 7px;
 }
 
@@ -145,4 +146,73 @@ h1 {
     font-weight: 600;
     display: flex;
     justify-content: center;
+}
+
+/* Средний контейнер */
+
+.StatsTitle {
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+}
+
+.StatsValue {
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+}
+
+.Middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ArmorsInitSpeed {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.ArmorClass {
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid aliceblue;
+    border-radius: 10%;
+    padding: 4%;
+    width: 110px;
+}
+
+.Initiative {
+    margin-right: 7px;
+    margin-left: 7px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid aliceblue;
+    border-radius: 10%;
+    padding: 3%;
+}
+
+.Speed {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid aliceblue;
+    border-radius: 10%;
+    padding: 4%;
+}
+
+.HPConteiner {
+    margin-bottom: 15px;
+}
+
+/* Правый контейнер */
+
+.Right {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }

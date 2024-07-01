@@ -10,6 +10,9 @@ class BaseInfoStore {
     worldview = ''
     level = ''
     experience = ''
+    armorclass = ''
+    initiative = ''
+    speed = ''
 
     constructor() {
         makeAutoObservable(this, {
@@ -21,11 +24,14 @@ class BaseInfoStore {
             worldview: observable,
             level: observable,
             experience: observable,
+            armorclass: observable,
+            initiative: observable,
+            speed: observable,
         });
     }
 
 
-    setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience) => {
+    setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience, armorclass, initiative, speed,) => {
         this.id = id;
         this.name = name;
         this.charclass = charclass;
@@ -34,6 +40,9 @@ class BaseInfoStore {
         this.worldview = worldview;
         this.level = level;
         this.experience = experience;
+        this.armorclass = armorclass;
+        this.initiative = initiative;
+        this.speed = speed;
     });
 
 }

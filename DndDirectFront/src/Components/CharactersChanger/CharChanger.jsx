@@ -40,7 +40,20 @@ const CharChanger = observer(() => {
         experience: {
             label: 'Опыт',
             value: BaseCharInfoStore.experience
-        }
+        },
+        armorclass: {
+            label: 'Класс Доспехов',
+            value: BaseCharInfoStore.armorclass
+        },
+        initiative: {
+            label: 'Инициатива',
+            value: BaseCharInfoStore.initiative
+        },
+        speed: {
+            label: 'Скорость',
+            value: BaseCharInfoStore.speed
+        },
+
 
     };
 

@@ -84,6 +84,9 @@ class Сharacters(models.Model):
     wis = models.IntegerField()
     chr = models.IntegerField()
     possessionValue = models.IntegerField(db_column='possession_value')
+    armorclass = models.IntegerField()
+    initiative = models.IntegerField()
+    speed = models.IntegerField()
     
 
     class Meta:

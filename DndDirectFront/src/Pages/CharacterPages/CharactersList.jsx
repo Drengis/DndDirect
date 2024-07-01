@@ -5,7 +5,6 @@ import styles from './CharactersList.module.css';
 import Header from '../../Components/MainComponents/Header';
 import Button from '../../Components/MainComponents/Button';
 import CreateIcon from '../../Components/Icons/Create.png';
-import SaveIcon from '../../Components/Icons/Save.png';
 import LoadIcon from '../../Components/Icons/Load.png';
 import DownloadIcon from '../../Components/Icons/Download.png';
 import LogininStore from '../../cms/LogininStore';
@@ -43,9 +42,6 @@ const CharactersList = observer(() => {
                 <div className={styles.SaveLoadSideBar}>
                     <button type="button" className={`${styles.SLButton} btn btn-secondary`} title="Создать персонажа">
                         <img src={CreateIcon} alt="Создать" />
-                    </button>
-                    <button type="button" className={`${styles.SLButton} btn btn-secondary`} title="Сохранить">
-                        <img src={SaveIcon} alt="Сохранить" />
                     </button>
                     <button type="button" className={`${styles.SLButton} btn btn-secondary`} title="Загрузить">
                         <img src={LoadIcon} alt="Загрузить" />

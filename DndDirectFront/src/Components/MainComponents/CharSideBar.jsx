@@ -8,7 +8,6 @@ import AppearanceIcon from '../Icons/Appearance.png'
 import PossessionsIcon from '../Icons/Possessions.png'
 import HistoryIcon from '../Icons/History.png'
 import CreateIcon from '../Icons/Create.png'
-import SaveIcon from '../Icons/Save.png'
 import LoadIcon from '../Icons/Load.png'
 import DownloadIcon from '../Icons/Download.png'
 
@@ -42,9 +41,6 @@ function CharSideBar() {
                 <div className={styles.SaveLoadButtons}>
                     <Link to={`/character/create/`} className={`${styles.link} btn btn-secondary`} title="Создать персонажа">
                         <img src={CreateIcon} />
-                    </Link>
-                    <Link className={`${styles.link} btn btn-secondary`} title="Сохранить">
-                        <img src={SaveIcon} />
                     </Link>
                     <Link className={`${styles.link} btn btn-secondary`} title="Загрузить">
                         <img src={LoadIcon} />

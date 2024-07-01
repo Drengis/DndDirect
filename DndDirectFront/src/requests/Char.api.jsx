@@ -38,7 +38,8 @@ const charQuery = async () => {
 
             BaseCharInfoStore.setBaseInfo(
                 CharacterData.id, CharacterData.name, CharacterData.charclass, CharacterData.race,
-                CharacterData.history, CharacterData.worldview, CharacterData.level, CharacterData.experience
+                CharacterData.history, CharacterData.worldview, CharacterData.level, CharacterData.experience,
+                CharacterData.armorclass, CharacterData.initiative, CharacterData.speed,
             );
         } else {
             console.error('Error fetching character data:', CharacterResponse.status, SkillsResponse.status);
