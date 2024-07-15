@@ -14,6 +14,7 @@ class BaseInfoStore {
     initiative = ''
     speed = ''
 
+
     constructor() {
         makeAutoObservable(this, {
             id: observable,
@@ -27,11 +28,15 @@ class BaseInfoStore {
             armorclass: observable,
             initiative: observable,
             speed: observable,
+            maxhp: observable,
+            temphp: observable,
+            nowhp: observable,
         });
     }
 
 
-    setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience, armorclass, initiative, speed,) => {
+    setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience, armorclass, initiative, speed, maxhp,
+        temphp, nowhp,) => {
         this.id = id;
         this.name = name;
         this.charclass = charclass;
@@ -43,6 +48,9 @@ class BaseInfoStore {
         this.armorclass = armorclass;
         this.initiative = initiative;
         this.speed = speed;
+        this.maxhp = maxhp;
+        this.temphp = temphp;
+        this.nowhp = nowhp;
     });
 
 }

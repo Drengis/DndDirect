@@ -43,7 +43,7 @@ class SpellsViewGet(APIView):
         return Response(serializer.data)       
 
 class CharactersViewSet(ViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes=[IsAuthenticated]
     
     def all(self, request):
         char = Сharacters.objects.all()
@@ -69,6 +69,7 @@ class CharactersViewSet(ViewSet):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except Сharacters.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
         
 class CharactersSkillsViewSet(ViewSet):
     permission_classes=[IsAuthenticated]

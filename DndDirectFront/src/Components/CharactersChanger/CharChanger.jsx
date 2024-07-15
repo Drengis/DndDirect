@@ -53,7 +53,10 @@ const CharChanger = observer(() => {
             label: 'Скорость',
             value: BaseCharInfoStore.speed
         },
-
+        maxhp: {
+            label: 'Макс. HP',
+            value: BaseCharInfoStore.maxhp
+        },
 
     };
 
@@ -109,8 +112,6 @@ const CharChanger = observer(() => {
                     Object.entries(fieldValues).map(([field, { value }]) => [field, value])
                 ),
             };
-
-            console.log(updatedFields)
 
             await axios.post('http://127.0.0.1:8000/characters/update', updatedFields, {
                 headers: {

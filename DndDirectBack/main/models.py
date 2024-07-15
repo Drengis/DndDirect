@@ -87,6 +87,9 @@ class Сharacters(models.Model):
     armorclass = models.IntegerField()
     initiative = models.IntegerField()
     speed = models.IntegerField()
+    maxhp = models.IntegerField(db_column= 'max_hp')
+    temphp = models.IntegerField(db_column= 'temp_hp')
+    nowhp = models.IntegerField(db_column= 'now_hp')
     
 
     class Meta:

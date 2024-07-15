@@ -12,6 +12,7 @@ import CharacteristicStore from '../../cms/CharacteristicStore';
 import CharChangerModal from '../../cms/CharChangerStore';
 import CharChanger from '../../Components/CharactersChanger/CharChanger';
 import SkillBar from '../../Components/CharComp/SkillBar';
+import HPBar from '../../Components/CharComp/HPBar';
 
 const CharacterInfo = observer(() => {
     charQuery();
@@ -124,7 +125,18 @@ const CharacterInfo = observer(() => {
                                         </div>
                                     </div>
                                     <div className={styles.HPConteiner}>
-                                        Здоровье
+                                        <div className={styles.MaxHP}>
+                                            <label className={styles.StatsTitle}>Макс. HP</label>
+                                            <label className={styles.StatsValue}>{BaseCharInfoStore.maxhp}</label>
+                                        </div>
+                                        <div className={styles.TempHP}>
+                                            <label className={styles.StatsTitle}>Врем. HP</label>
+                                            <HPBar value={BaseCharInfoStore.temphp} type='temphp' />
+                                        </div>
+                                        <div className={styles.NowHP}>
+                                            <label className={styles.StatsTitle}>Текущ. HP</label>
+                                            <HPBar value={BaseCharInfoStore.nowhp} type='nowhp' />
+                                        </div>
                                     </div>
                                     <div className={styles.InventoryCoins}>
                                         <div className={styles.Inventory}>

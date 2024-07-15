@@ -1,0 +1,21 @@
+.HPButton {
+    margin-right: 7px;
+    margin-left: 7px;
+    width: 60px;
+}
+
+.HPBarConteiner {
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+}
+
+.HPValue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 27px;
+    font-weight: 700;
+    margin-left: 5px;
+    margin-right: 5px;
+}
