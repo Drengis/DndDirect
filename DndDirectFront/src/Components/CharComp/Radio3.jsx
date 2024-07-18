@@ -15,7 +15,7 @@ function Radio3(props) {
 
     const sendDataToBackend = async (value) => {
         const query = {
-            characters_id: BaseCharInfoStore.id,
+            id: BaseCharInfoStore.id,
             [props.name]: value
         }
         try {

@@ -40,9 +40,9 @@ const charQuery = async () => {
                 CharacterData.id, CharacterData.name, CharacterData.charclass, CharacterData.race,
                 CharacterData.history, CharacterData.worldview, CharacterData.level, CharacterData.experience,
                 CharacterData.armorclass, CharacterData.initiative, CharacterData.speed, CharacterData.maxhp, CharacterData.temphp,
-                CharacterData.nowhp,
+                CharacterData.nowhp, CharacterData.inventory, CharacterData.copper, CharacterData.silver, CharacterData.gold,
+                CharacterData.electrum, CharacterData.platinum
             );
-
 
         } else {
             console.error('Error fetching character data:', CharacterResponse.status, SkillsResponse.status);

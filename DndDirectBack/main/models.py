@@ -90,7 +90,12 @@ class Сharacters(models.Model):
     maxhp = models.IntegerField(db_column= 'max_hp')
     temphp = models.IntegerField(db_column= 'temp_hp')
     nowhp = models.IntegerField(db_column= 'now_hp')
-    
+    inventory = models.TextField()
+    copper = models.IntegerField()
+    silver = models.IntegerField()
+    gold = models.IntegerField()
+    electrum = models.IntegerField()
+    platinum = models.IntegerField()
 
     class Meta:
         db_table = 'characters'

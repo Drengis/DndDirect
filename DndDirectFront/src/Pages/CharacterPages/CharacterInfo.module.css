@@ -212,6 +212,47 @@ h1 {
     padding: 4%;
 }
 
+.InventoryCoins {
+    width: 100%;
+}
+
+.Inventory {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.InventoryBar {
+    margin-top: 5px;
+    background-color: #333333;
+    color: aliceblue;
+    width: 100%;
+    height: 250px;
+    border: 1px solid aliceblue;
+    border-radius: 2%;
+}
+
+.InventoryBar:focus {
+    background-color: #333333;
+    color: aliceblue;
+}
+
+.CoinsBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10 px;
+}
+
+.CoinInput {
+    width: 65px;
+}
+
+.Coin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Правый контейнер */
 
 .Right {

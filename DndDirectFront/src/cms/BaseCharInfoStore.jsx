@@ -13,6 +13,13 @@ class BaseInfoStore {
     armorclass = ''
     initiative = ''
     speed = ''
+    inventory = ''
+    copper = ''
+    silver = ''
+    gold = ''
+    electrum = ''
+    platinum = ''
+
 
 
     constructor() {
@@ -31,12 +38,18 @@ class BaseInfoStore {
             maxhp: observable,
             temphp: observable,
             nowhp: observable,
+            inventory: observable,
+            copper: observable,
+            silver: observable,
+            gold: observable,
+            electrum: observable,
+            platinum: observable,
         });
     }
 
 
     setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience, armorclass, initiative, speed, maxhp,
-        temphp, nowhp,) => {
+        temphp, nowhp, inventory, copper, silver, gold, electrum, platinum) => {
         this.id = id;
         this.name = name;
         this.charclass = charclass;
@@ -51,6 +64,12 @@ class BaseInfoStore {
         this.maxhp = maxhp;
         this.temphp = temphp;
         this.nowhp = nowhp;
+        this.inventory = inventory;
+        this.copper = copper;
+        this.silver = silver;
+        this.gold = gold;
+        this.electrum = electrum;
+        this.platinum = platinum;
     });
 
 }

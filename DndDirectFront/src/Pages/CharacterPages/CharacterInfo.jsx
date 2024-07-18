@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterInfo.module.css'
 import Header from '../../Components/MainComponents/Header';
@@ -17,6 +18,25 @@ import HPBar from '../../Components/CharComp/HPBar';
 const CharacterInfo = observer(() => {
     charQuery();
     const UnauthMessage = 'Вы не авторизованы'
+
+    const sendToServer = async (key, value) => {
+        const query = {
+            id: BaseCharInfoStore.id,
+            [key]: value,
+        };
+        try {
+            console.log(query)
+            await axios.post('http://127.0.0.1:8000/characters/update', query, {
+                headers: {
+                    'Authorization': `Bearer ${LogininStore.token}`,
+                },
+            });
+            console.log('Данные успешно обновлены на сервере');
+        } catch (error) {
+            console.error('Ошибка при обновлении данных на сервере:', error);
+        }
+    };
+
 
     return (
         <>
@@ -140,10 +160,63 @@ const CharacterInfo = observer(() => {
                                     </div>
                                     <div className={styles.InventoryCoins}>
                                         <div className={styles.Inventory}>
-                                            Инвентарь
+                                            <label className={styles.StatsTitle}>Инвентарь</label>
+                                            <textarea
+                                                className={`${styles.InventoryBar} form-control`}
+                                                id="floatingTextarea"
+                                                defaultValue={BaseCharInfoStore.inventory}
+                                                onChange={(e) => sendToServer('inventory', e.target.value)} />
                                         </div>
                                         <div className={styles.CoinsConteiner}>
-                                            Монеты
+                                            <label className={styles.StatsTitle}>Монеты</label>
+                                            <div className={styles.CoinsBar}>
+                                                <div className={styles.Coin}>
+                                                    <label className={styles.CoinTitle}>ММ</label>
+                                                    <input
+                                                        type="number"
+                                                        className={`${styles.CoinInput} form-control bg-dark text-light`}
+                                                        defaultValue={BaseCharInfoStore.copper}
+                                                        onChange={(e) => sendToServer('copper', e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className={styles.Coin}>
+                                                    <label className={styles.CoinTitle}>СМ</label>
+                                                    <input
+                                                        type="number"
+                                                        className={`${styles.CoinInput} form-control bg-dark text-light`}
+                                                        defaultValue={BaseCharInfoStore.silver}
+                                                        onChange={(e) => sendToServer('silver', e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className={styles.Coin}>
+                                                    <label className={styles.CoinTitle}>ЗМ</label>
+                                                    <input
+                                                        type="number"
+                                                        className={`${styles.CoinInput} form-control bg-dark text-light`}
+                                                        defaultValue={BaseCharInfoStore.gold}
+                                                        onChange={(e) => sendToServer('gold', e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className={styles.Coin}>
+                                                    <label className={styles.CoinTitle}>ЭМ</label>
+                                                    <input
+                                                        type="number"
+                                                        className={`${styles.CoinInput} form-control bg-dark text-light`}
+                                                        defaultValue={BaseCharInfoStore.electrum}
+                                                        onChange={(e) => sendToServer('electrum', e.target.value)}
+                                                    />
+                                                </div>
+                                                <div className={styles.Coin}>
+                                                    <label className={styles.CoinTitle}>ПМ</label>
+                                                    <input
+                                                        type="number"
+                                                        className={`${styles.CoinInput} form-control bg-dark text-light`}
+                                                        defaultValue={BaseCharInfoStore.platinum}
+                                                        onChange={(e) => sendToServer('platinum', e.target.value)}
+                                                    />
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
