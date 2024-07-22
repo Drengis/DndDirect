@@ -47,3 +47,8 @@ class CharactersSkillsSerializer(serializers.ModelSerializer):
         model = CharactersSkills
         fields = '__all__'
         
+class CharactersWeaponsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CharactersWeapons
+        fields = ['id', 'name', 'damage', 'modif']
+        

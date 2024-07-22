@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterInfo.module.css'
@@ -14,6 +15,10 @@ import CharChangerModal from '../../cms/CharChangerStore';
 import CharChanger from '../../Components/CharactersChanger/CharChanger';
 import SkillBar from '../../Components/CharComp/SkillBar';
 import HPBar from '../../Components/CharComp/HPBar';
+import WeaponBar from '../../Components/CharComp/WeaponBar';
+import CharWeaponsStore from '../../cms/CharWeaponsStore';
+import weaponsQuery from '../../requests/CharWeapons.api';
+import AlertStore from '../../cms/AlertStore';
 
 const CharacterInfo = observer(() => {
     charQuery();
@@ -25,16 +30,37 @@ const CharacterInfo = observer(() => {
             [key]: value,
         };
         try {
-            console.log(query)
             await axios.post('http://127.0.0.1:8000/characters/update', query, {
                 headers: {
                     'Authorization': `Bearer ${LogininStore.token}`,
                 },
             });
-            console.log('Данные успешно обновлены на сервере');
         } catch (error) {
             console.error('Ошибка при обновлении данных на сервере:', error);
         }
+    };
+
+    const creacteWeapons = async () => {
+        const character_id = BaseCharInfoStore.id;
+        const query = {
+            character_id: BaseCharInfoStore.id,
+        };
+
+        try {
+            if (CharWeaponsStore.weapons.length < 4) {
+                await axios.post('http://127.0.0.1:8000/charactersweapons/сreate', query, {
+                    headers: {
+                        'Authorization': `Bearer ${LogininStore.token}`,
+                    },
+                });
+                weaponsQuery(character_id);
+            } else {
+                AlertStore.AddWarningAlert('Не больше 4х пунктов')
+            }
+        } catch (error) {
+            console.error('Ошибка при создании оружия:', error);
+        }
+
     };
 
 
@@ -222,7 +248,19 @@ const CharacterInfo = observer(() => {
                                 </div>
                                 <div className={styles.Right}>
                                     <div className={styles.Weapons}>
-                                        Оружие
+                                        <label className={styles.StatsTitle}>Оружие</label>
+                                        {CharWeaponsStore.weapons.map((weapon) => (
+                                            <WeaponBar
+                                                key={weapon.id}
+                                                id={weapon.id}
+                                                name={weapon.name}
+                                                modif={weapon.modif}
+                                                damage={weapon.damage}
+                                            />
+                                        ))}
+                                        <div className={styles.WeaponsButtons}>
+                                            <Button name='Создать' onclick={creacteWeapons} />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -14,14 +14,11 @@ function HPBar(props) {
     const handleDecrement = (amount) => {
         setValue(value - amount);
         sendToServer(value - amount);
-        console.log(value - amount);
-
     };
 
     const handleIncrement = (amount) => {
         setValue(value + amount);
         sendToServer(value + amount);
-        console.log(value + amount);
     };
 
     const sendToServer = async (value) => {

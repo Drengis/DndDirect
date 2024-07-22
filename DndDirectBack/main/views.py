@@ -94,3 +94,50 @@ class CharactersSkillsViewSet(ViewSet):
         except CharactersSkills.DoesNotExist:
             return Response("Персонаж не найден", status=status.HTTP_404_NOT_FOUND)
         
+        
+class CharactersWeaponsViewSet(ViewSet):
+    permission_classes=[IsAuthenticated]
+    
+    def getweapons(self, request, id):
+        try:
+            character_weapons = CharactersWeapons.objects.filter(characters_id=id)
+            serializer = CharactersWeaponsSerializer(character_weapons, many=True)
+            return Response(serializer.data)
+        except CharactersWeapons.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    def updateweapons(self, request):
+        weapon_id = request.data.get('id')
+        try:
+            character_weapon = CharactersWeapons.objects.get(id=weapon_id)
+            serializer = CharactersWeaponsSerializer(character_weapon, data=request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        except CharactersWeapons.DoesNotExist:
+            return Response("Оружие персонажа не найдено", status=status.HTTP_404_NOT_FOUND)
+        
+    def createweapons(self, request):
+        try:
+            new_weapon = CharactersWeapons(
+                characters_id=request.data.get('character_id'),
+                name="Название",
+                modif="+0",
+                damage="1d4"
+            )
+            new_weapon.save()
+            serializer = CharactersWeaponsSerializer(new_weapon)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+    def deleteweapon(self, request, id):
+        try:
+            weapon = CharactersWeapons.objects.get(id=id)
+            weapon.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except CharactersWeapons.DoesNotExist:
+            return Response({"error": "Оружие персонажа не найдено"}, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)

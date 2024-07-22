@@ -10,8 +10,6 @@ function Input(props) {
                 <input
                     type="text"
                     className="form-control bg-dark text-light"
-                    aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default"
                     defaultValue={props.defaultValue}
                     onChange={props.onchange} />
             </div>

@@ -129,3 +129,12 @@ class CharactersSkills(models.Model):
 
     class Meta:
         db_table = 'charskills'
+        
+class CharactersWeapons(models.Model):
+    characters_id = models.IntegerField()
+    name = models.TextField()
+    modif = models.TextField()
+    damage = models.TextField()
+    
+    class Meta:
+        db_table = 'charweapons'

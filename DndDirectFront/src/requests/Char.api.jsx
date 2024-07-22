@@ -2,11 +2,12 @@ import { useParams } from 'react-router-dom';
 import LogininStore from '../cms/LogininStore';
 import CharacteristicStore from '../cms/CharacteristicStore';
 import BaseCharInfoStore from '../cms/BaseCharInfoStore';
+import CharWeaponsStore from '../cms/CharWeaponsStore';
 
 const charQuery = async () => {
     const { id } = useParams();
     try {
-        const [CharacterResponse, SkillsResponse] = await Promise.all([
+        const [CharacterResponse, SkillsResponse, WeaponsResponse] = await Promise.all([
             fetch(`http://127.0.0.1:8000/characters/get/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${LogininStore.token}`,
@@ -17,11 +18,17 @@ const charQuery = async () => {
                     'Authorization': `Bearer ${LogininStore.token}`,
                 },
             }),
+            fetch(`http://127.0.0.1:8000/charactersweapons/get/${id}`, {
+                headers: {
+                    'Authorization': `Bearer ${LogininStore.token}`,
+                },
+            }),
         ]);
 
         if (CharacterResponse.ok && SkillsResponse.ok) {
             const CharacterData = await CharacterResponse.json();
             const CharacterSkillsData = await SkillsResponse.json();
+            const CharacterWeaponsData = await WeaponsResponse.json();
 
             CharacteristicStore.setCharecteristic(
                 CharacterData.str, CharacterData.dex, CharacterData.con,
@@ -43,6 +50,12 @@ const charQuery = async () => {
                 CharacterData.nowhp, CharacterData.inventory, CharacterData.copper, CharacterData.silver, CharacterData.gold,
                 CharacterData.electrum, CharacterData.platinum
             );
+
+            CharacterWeaponsData.forEach((weapon) => {
+                if (!CharWeaponsStore.weapons.some(w => w.name === weapon.name)) {
+                    CharWeaponsStore.addWeapon(weapon);
+                }
+            });
 
         } else {
             console.error('Error fetching character data:', CharacterResponse.status, SkillsResponse.status);
