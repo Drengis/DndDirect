@@ -5,7 +5,15 @@ import BaseCharInfoStore from '../cms/BaseCharInfoStore';
 import CharWeaponsStore from '../cms/CharWeaponsStore';
 
 const charQuery = async () => {
-    const { id } = useParams();
+    function getIdFromUrl() {
+        const url = new URL(window.location.href); // Переменная из url
+        const pathParts = url.pathname.split('/'); // Сплитим по слешу
+        const idIndex = pathParts.findIndex(part => part === 'info') + 1; // Элемент после info в запросе
+        return pathParts[idIndex] || null;
+    }
+    // Функция нужна чтобы найти id персонажа без использования useParams
+
+    const id = getIdFromUrl()
     try {
         const [CharacterResponse, SkillsResponse, WeaponsResponse] = await Promise.all([
             fetch(`http://127.0.0.1:8000/characters/get/${id}`, {
@@ -25,10 +33,12 @@ const charQuery = async () => {
             }),
         ]);
 
-        if (CharacterResponse.ok && SkillsResponse.ok) {
+        if (CharacterResponse.ok && SkillsResponse.ok && WeaponsResponse.ok) {
             const CharacterData = await CharacterResponse.json();
             const CharacterSkillsData = await SkillsResponse.json();
             const CharacterWeaponsData = await WeaponsResponse.json();
+
+
 
             CharacteristicStore.setCharecteristic(
                 CharacterData.str, CharacterData.dex, CharacterData.con,
@@ -48,14 +58,15 @@ const charQuery = async () => {
                 CharacterData.history, CharacterData.worldview, CharacterData.level, CharacterData.experience,
                 CharacterData.armorclass, CharacterData.initiative, CharacterData.speed, CharacterData.maxhp, CharacterData.temphp,
                 CharacterData.nowhp, CharacterData.inventory, CharacterData.copper, CharacterData.silver, CharacterData.gold,
-                CharacterData.electrum, CharacterData.platinum
+                CharacterData.electrum, CharacterData.platinum, CharacterData.rasepecul, CharacterData.classpecul, CharacterData.feature,
             );
 
+
+            CharWeaponsStore.deleteWeapons()
             CharacterWeaponsData.forEach((weapon) => {
-                if (!CharWeaponsStore.weapons.some(w => w.name === weapon.name)) {
-                    CharWeaponsStore.addWeapon(weapon);
-                }
+                CharWeaponsStore.addWeapon(weapon);
             });
+
 
         } else {
             console.error('Error fetching character data:', CharacterResponse.status, SkillsResponse.status);

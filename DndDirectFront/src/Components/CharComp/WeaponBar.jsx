@@ -4,6 +4,7 @@ import axios from 'axios';
 import LogininStore from '../../cms/LogininStore';
 import BaseCharInfoStore from '../../cms/BaseCharInfoStore';
 import weaponsQuery from '../../requests/CharWeapons.api';
+import { debounce } from 'lodash';
 
 function WeaponBar(props) {
     const id = props.id
@@ -33,6 +34,8 @@ function WeaponBar(props) {
         }
     };
 
+    const debouncedSendToServer = debounce(sendToServer, 1000);
+
     const deleteWeapons = async (id) => {
         try {
             await axios.delete(`http://127.0.0.1:8000/charactersweapons/delete/${id}`, {
@@ -54,7 +57,7 @@ function WeaponBar(props) {
                         type="text"
                         className={`${styles.NameInput} form-control bg-dark text-light`}
                         defaultValue={props.name}
-                        onChange={(e) => sendToServer('name', e.target.value)}
+                        onChange={(e) => debouncedSendToServer('name', e.target.value)}
                     />
                 </div>
                 <div className={styles.ModifConteiner}>
@@ -62,7 +65,7 @@ function WeaponBar(props) {
                         type="text"
                         className={`${styles.ModifInput} form-control bg-dark text-light`}
                         defaultValue={props.modif}
-                        onChange={(e) => sendToServer('modif', e.target.value)}
+                        onChange={(e) => debouncedSendToServer('modif', e.target.value)}
                     />
                 </div>
                 <div className={styles.DamageConteiner}>
@@ -70,7 +73,7 @@ function WeaponBar(props) {
                         type="text"
                         className={`${styles.NameInput} form-control bg-dark text-light`}
                         defaultValue={props.damage}
-                        onChange={(e) => sendToServer('damage', e.target.value)}
+                        onChange={(e) => debouncedSendToServer('damage', e.target.value)}
                     />
                 </div>
                 <div className={styles.СloseButtonConteiner}>

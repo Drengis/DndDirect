@@ -1,5 +1,4 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterInfo.module.css'
@@ -19,9 +18,16 @@ import WeaponBar from '../../Components/CharComp/WeaponBar';
 import CharWeaponsStore from '../../cms/CharWeaponsStore';
 import weaponsQuery from '../../requests/CharWeapons.api';
 import AlertStore from '../../cms/AlertStore';
+import { debounce } from 'lodash';
 
 const CharacterInfo = observer(() => {
-    charQuery();
+    useEffect(() => {
+        const fetch = async () => {
+            charQuery();
+        }
+        fetch()
+    }, [])
+
     const UnauthMessage = 'Вы не авторизованы'
 
     const sendToServer = async (key, value) => {
@@ -39,6 +45,8 @@ const CharacterInfo = observer(() => {
             console.error('Ошибка при обновлении данных на сервере:', error);
         }
     };
+
+    const debouncedSendToServer = debounce(sendToServer, 1000);
 
     const creacteWeapons = async () => {
         const character_id = BaseCharInfoStore.id;
@@ -191,7 +199,7 @@ const CharacterInfo = observer(() => {
                                                 className={`${styles.InventoryBar} form-control`}
                                                 id="floatingTextarea"
                                                 defaultValue={BaseCharInfoStore.inventory}
-                                                onChange={(e) => sendToServer('inventory', e.target.value)} />
+                                                onChange={(e) => debouncedSendToServer('inventory', e.target.value)} />
                                         </div>
                                         <div className={styles.CoinsConteiner}>
                                             <label className={styles.StatsTitle}>Монеты</label>
@@ -202,7 +210,7 @@ const CharacterInfo = observer(() => {
                                                         type="number"
                                                         className={`${styles.CoinInput} form-control bg-dark text-light`}
                                                         defaultValue={BaseCharInfoStore.copper}
-                                                        onChange={(e) => sendToServer('copper', e.target.value)}
+                                                        onChange={(e) => debouncedSendToServer('copper', e.target.value)}
                                                     />
                                                 </div>
                                                 <div className={styles.Coin}>
@@ -211,7 +219,7 @@ const CharacterInfo = observer(() => {
                                                         type="number"
                                                         className={`${styles.CoinInput} form-control bg-dark text-light`}
                                                         defaultValue={BaseCharInfoStore.silver}
-                                                        onChange={(e) => sendToServer('silver', e.target.value)}
+                                                        onChange={(e) => debouncedSendToServer('silver', e.target.value)}
                                                     />
                                                 </div>
                                                 <div className={styles.Coin}>
@@ -220,7 +228,7 @@ const CharacterInfo = observer(() => {
                                                         type="number"
                                                         className={`${styles.CoinInput} form-control bg-dark text-light`}
                                                         defaultValue={BaseCharInfoStore.gold}
-                                                        onChange={(e) => sendToServer('gold', e.target.value)}
+                                                        onChange={(e) => debouncedSendToServer('gold', e.target.value)}
                                                     />
                                                 </div>
                                                 <div className={styles.Coin}>
@@ -229,7 +237,7 @@ const CharacterInfo = observer(() => {
                                                         type="number"
                                                         className={`${styles.CoinInput} form-control bg-dark text-light`}
                                                         defaultValue={BaseCharInfoStore.electrum}
-                                                        onChange={(e) => sendToServer('electrum', e.target.value)}
+                                                        onChange={(e) => debouncedSendToServer('electrum', e.target.value)}
                                                     />
                                                 </div>
                                                 <div className={styles.Coin}>
@@ -238,7 +246,7 @@ const CharacterInfo = observer(() => {
                                                         type="number"
                                                         className={`${styles.CoinInput} form-control bg-dark text-light`}
                                                         defaultValue={BaseCharInfoStore.platinum}
-                                                        onChange={(e) => sendToServer('platinum', e.target.value)}
+                                                        onChange={(e) => debouncedSendToServer('platinum', e.target.value)}
                                                     />
                                                 </div>
                                             </div>
@@ -260,6 +268,35 @@ const CharacterInfo = observer(() => {
                                         ))}
                                         <div className={styles.WeaponsButtons}>
                                             <Button name='Создать' onclick={creacteWeapons} />
+                                        </div>
+                                    </div>
+                                    <div className={styles.Peculiarities}>
+                                        <div className={styles.RasePercul}>
+                                            <label className={styles.StatsTitle}>Рассовые способности</label>
+                                            <textarea
+                                                className={`${styles.PerculBar} form-control`}
+                                                id="floatingTextarea"
+                                                defaultValue={BaseCharInfoStore.rasepecul}
+                                                onChange={(e) => debouncedSendToServer('rasepecul', e.target.value)}
+                                            />
+                                        </div>
+                                        <div className={styles.ClassPercul}>
+                                            <label className={styles.StatsTitle}>Классовая способности</label>
+                                            <textarea
+                                                className={`${styles.PerculBar} form-control`}
+                                                id="floatingTextarea"
+                                                defaultValue={BaseCharInfoStore.classpecul}
+                                                onChange={(e) => debouncedSendToServer('classpecul', e.target.value)}
+                                            />
+                                        </div>
+                                        <div className={styles.Features}>
+                                            <label className={styles.StatsTitle}>Черты</label>
+                                            <textarea
+                                                className={`${styles.PerculBar} form-control`}
+                                                id="floatingTextarea"
+                                                defaultValue={BaseCharInfoStore.feature}
+                                                onChange={(e) => debouncedSendToServer('feature', e.target.value)}
+                                            />
                                         </div>
                                     </div>
                                 </div>

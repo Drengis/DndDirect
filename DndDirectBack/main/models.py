@@ -96,6 +96,9 @@ class Сharacters(models.Model):
     gold = models.IntegerField()
     electrum = models.IntegerField()
     platinum = models.IntegerField()
+    rasepecul = models.TextField()
+    classpecul = models.TextField()
+    feature = models.TextField()
 
     class Meta:
         db_table = 'characters'

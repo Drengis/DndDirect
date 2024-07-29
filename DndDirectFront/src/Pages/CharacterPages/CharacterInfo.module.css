@@ -264,6 +264,7 @@ h1 {
 }
 
 .Weapons {
+    margin-top: 30px;
     border: 1px solid aliceblue;
     border-radius: 7%;
     padding: 2.5%;
@@ -273,4 +274,30 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 15px;
+}
+
+.Peculiarities {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid aliceblue;
+    border-radius: 7%;
+    padding: 2.5%;
+    margin-top: 30px;
+}
+
+.PerculBar {
+    margin-top: 5px;
+    background-color: #333333;
+    color: aliceblue;
+    width: 100%;
+    height: 250px;
+    border: 1px solid aliceblue;
+    border-radius: 2%;
+}
+
+.PerculBar:focus {
+    background-color: #333333;
+    color: aliceblue;
 }
