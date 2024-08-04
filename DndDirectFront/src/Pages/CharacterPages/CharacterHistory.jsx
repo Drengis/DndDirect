@@ -1,9 +1,8 @@
-import React, { useState, useEffect, } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './CharacterPoss.module.css'
 import Header from '../../Components/MainComponents/Header';
 import CharSideBar from '../../Components/MainComponents/CharSideBar'
-import LogininStore from '../../cms/LogininStore'
 
 
 const CharacterHistory = observer(() => {

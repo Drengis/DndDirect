@@ -99,6 +99,12 @@ class Сharacters(models.Model):
     rasepecul = models.TextField()
     classpecul = models.TextField()
     feature = models.TextField()
+    poss_weapons = models.TextField()
+    poss_armors = models.TextField()
+    poss_languages = models.TextField()
+    poss_music_inst = models.TextField()
+    poss_craft_inst = models.TextField()
+    poss_others = models.TextField()
 
     class Meta:
         db_table = 'characters'

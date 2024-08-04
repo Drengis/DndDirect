@@ -1,8 +1,8 @@
-import { useParams } from 'react-router-dom';
 import LogininStore from '../cms/LogininStore';
 import CharacteristicStore from '../cms/CharacteristicStore';
 import BaseCharInfoStore from '../cms/BaseCharInfoStore';
 import CharWeaponsStore from '../cms/CharWeaponsStore';
+import PossessionsStore from '../cms/PossessionsStore';
 
 const charQuery = async () => {
     function getIdFromUrl() {
@@ -38,8 +38,6 @@ const charQuery = async () => {
             const CharacterSkillsData = await SkillsResponse.json();
             const CharacterWeaponsData = await WeaponsResponse.json();
 
-
-
             CharacteristicStore.setCharecteristic(
                 CharacterData.str, CharacterData.dex, CharacterData.con,
                 CharacterData.int, CharacterData.wis, CharacterData.chr, CharacterData.possessionValue, CharacterSkillsData[0].savestr,
@@ -61,6 +59,8 @@ const charQuery = async () => {
                 CharacterData.electrum, CharacterData.platinum, CharacterData.rasepecul, CharacterData.classpecul, CharacterData.feature,
             );
 
+            PossessionsStore.setPossessions(CharacterData.poss_weapons, CharacterData.poss_armors, CharacterData.poss_languages, CharacterData.poss_music_inst,
+                CharacterData.poss_craft_inst, CharacterData.poss_others,)
 
             CharWeaponsStore.deleteWeapons()
             CharacterWeaponsData.forEach((weapon) => {

@@ -12,11 +12,39 @@
     height: 95vh;
 }
 
-.CharConteiner {
+.InfoConteiner {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.CharConteiner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
     padding: 1%;
+}
+
+.MainTitle {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.Title {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Левый контейнер */
+
+.Left {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
 }
 
 .SaveSkillConteiner {
@@ -26,7 +54,7 @@
     border: 1px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
-    width: 35%;
+
     margin-bottom: 15px;
 }
 
@@ -37,13 +65,13 @@
     border: 1px solid aliceblue;
     border-radius: 5%;
     padding: 1%;
-    width: 35%;
+
 }
 
-.TitlesConteiner {
+.SkillsTitlesConteiner {
     display: flex;
     flex-direction: row;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     justify-content: space-evenly;
     width: 100%;
 
@@ -58,4 +86,55 @@ h4 {
     flex-direction: column;
     width: 100%;
     padding: 1%;
+}
+
+/* Тестовые поля */
+
+.PossTitle {
+    font-size: 17px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+}
+
+.PossBar {
+    margin-top: 5px;
+    background-color: #333333;
+    color: aliceblue;
+    width: 100%;
+    height: 200px;
+    border: 1px solid aliceblue;
+    border-radius: 2%;
+}
+
+.PossBar:focus {
+    background-color: #333333;
+    color: aliceblue;
+}
+
+/* Средний контейнер */
+
+.Right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 100%;
+    padding: 1%;
+}
+
+.RightTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+
+.RightBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
 }
