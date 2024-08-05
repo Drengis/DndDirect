@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -14,11 +13,11 @@ import Spells from './Pages/OtherPages/Spells.jsx'
 import CharactersList from './Pages/CharacterPages/CharactersList.jsx'
 import CharacterInfo from './Pages/CharacterPages/CharacterInfo.jsx';
 import CharacterSpells from './Pages/CharacterPages/CharacterSpells.jsx';
-import CharacterApp from './Pages/CharacterPages/CharacterApp.jsx';
+
 import CharacterPoss from './Pages/CharacterPages/CharacterPoss.jsx';
 import CharacterHistory from './Pages/CharacterPages/CharacterHistory.jsx';
 import CharacterNotes from './Pages/CharacterPages/CharacterNotes.jsx';
-import CreatePage from './Pages/CharacterPages/CreatePage.jsx';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -30,11 +29,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/characters/" element={<CharactersList />} />
       <Route path="/character/info/:id/" element={<CharacterInfo />} />
       <Route path="/character/spells/:id/" element={<CharacterSpells />} />
-      <Route path="/character/app/:id/" element={<CharacterApp />} />
       <Route path="/character/poss/:id/" element={<CharacterPoss />} />
       <Route path="/character/history/:id/" element={<CharacterHistory />} />
       <Route path="/character/notes/:id/" element={<CharacterNotes />} />
-      <Route path="/character/create/" element={<CreatePage />} />
     </Routes>
   </BrowserRouter>
 )

@@ -105,6 +105,8 @@ class Сharacters(models.Model):
     poss_music_inst = models.TextField()
     poss_craft_inst = models.TextField()
     poss_others = models.TextField()
+    char_appearance = models.TextField()
+    char_history = models.TextField()
 
     class Meta:
         db_table = 'characters'

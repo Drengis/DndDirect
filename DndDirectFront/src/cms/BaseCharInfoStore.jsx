@@ -22,6 +22,8 @@ class BaseInfoStore {
     rasepecul = ''
     classpecul = ''
     feature = ''
+    char_appearance = ''
+    char_history = ''
 
     constructor() {
         makeAutoObservable(this, {
@@ -48,12 +50,15 @@ class BaseInfoStore {
             rasepecul: observable,
             classpecul: observable,
             feature: observable,
+            char_appearance: observable,
+            char_history: observable,
         });
     }
 
 
     setBaseInfo = action((id, name, charclass, race, history, worldview, level, experience, armorclass, initiative, speed, maxhp,
-        temphp, nowhp, inventory, copper, silver, gold, electrum, platinum, rasepecul, classpecul, feature,) => {
+        temphp, nowhp, inventory, copper, silver, gold, electrum, platinum, rasepecul, classpecul, feature, char_appearance,
+        char_history,) => {
         this.id = id;
         this.name = name;
         this.charclass = charclass;
@@ -77,6 +82,8 @@ class BaseInfoStore {
         this.rasepecul = rasepecul;
         this.classpecul = classpecul;
         this.feature = feature;
+        this.char_appearance = char_appearance;
+        this.char_history = char_history;
     });
 
 }

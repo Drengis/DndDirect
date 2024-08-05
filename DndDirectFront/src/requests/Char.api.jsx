@@ -57,10 +57,12 @@ const charQuery = async () => {
                 CharacterData.armorclass, CharacterData.initiative, CharacterData.speed, CharacterData.maxhp, CharacterData.temphp,
                 CharacterData.nowhp, CharacterData.inventory, CharacterData.copper, CharacterData.silver, CharacterData.gold,
                 CharacterData.electrum, CharacterData.platinum, CharacterData.rasepecul, CharacterData.classpecul, CharacterData.feature,
+                CharacterData.char_appearance, CharacterData.char_history,
             );
 
             PossessionsStore.setPossessions(CharacterData.poss_weapons, CharacterData.poss_armors, CharacterData.poss_languages, CharacterData.poss_music_inst,
-                CharacterData.poss_craft_inst, CharacterData.poss_others,)
+                CharacterData.poss_craft_inst, CharacterData.poss_others,);
+
 
             CharWeaponsStore.deleteWeapons()
             CharacterWeaponsData.forEach((weapon) => {

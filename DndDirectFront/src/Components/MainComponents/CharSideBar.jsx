@@ -25,9 +25,6 @@ function CharSideBar() {
                     <Link to={`/character/spells/${id}/`} className={`${styles.link} btn btn-secondary`} title="Заклинания">
                         <img src={SpellsIcon} />
                     </Link>
-                    <Link to={`/character/app/${id}/`} className={`${styles.link} btn btn-secondary`} title="Внешний вид">
-                        <img src={AppearanceIcon} />
-                    </Link>
                     <Link to={`/character/poss/${id}/`} className={`${styles.link} btn btn-secondary`} title="Владения">
                         <img src={PossessionsIcon} />
                     </Link>

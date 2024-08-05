@@ -12,9 +12,23 @@
     height: 95vh;
 }
 
-.CharConteiner {
+.InfoConteiner {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.CharConteiner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     align-items: center;
+    justify-content: space-around;
+    padding: 1%;
+}
+
+.MainTitle {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
 }

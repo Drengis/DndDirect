@@ -62,7 +62,7 @@ const CharactersList = observer(() => {
                                     <p>Класс: {character.charclass}</p>
                                     <p>Раса: {character.race}</p>
                                     <p>Ур: {character.level}</p>
-                                    <Link to={`/character/info/${character.id}/`}> <Button name='Персонажи' /> </Link>
+                                    <Link to={`/character/info/${character.id}/`}> <Button name='Перейти' /> </Link>
                                 </div>
                             ))
                         ) : (
