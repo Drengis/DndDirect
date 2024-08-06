@@ -107,6 +107,11 @@ class Сharacters(models.Model):
     poss_others = models.TextField()
     char_appearance = models.TextField()
     char_history = models.TextField()
+    note_names = models.TextField()
+    note_cities = models.TextField()
+    note_quests = models.TextField()
+    note_items = models.TextField()
+    note_others = models.TextField()
 
     class Meta:
         db_table = 'characters'
